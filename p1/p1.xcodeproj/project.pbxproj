@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FC4892C203429360086CFCD /* Winform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4892A203429360086CFCD /* Winform.cpp */; };
+		0FC489302035139A0086CFCD /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4892E2035139A0086CFCD /* Shader.cpp */; };
+		0FC48934203514410086CFCD /* VertexObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FC48932203514410086CFCD /* VertexObject.cpp */; };
+		0FC48937203514BA0086CFCD /* TestCase1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FC48935203514BA0086CFCD /* TestCase1.cpp */; };
 		688208C51FF64937001FC4FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 688208C41FF64937001FC4FC /* main.cpp */; };
 		688208CC1FF65205001FC4FC /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 688208CB1FF65205001FC4FC /* libglfw.3.2.dylib */; };
 		688208CE1FF65218001FC4FC /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 688208CD1FF65218001FC4FC /* libGLEW.2.1.0.dylib */; };
@@ -26,6 +30,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0FC4892A203429360086CFCD /* Winform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Winform.cpp; sourceTree = "<group>"; };
+		0FC4892B203429360086CFCD /* Winform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Winform.h; sourceTree = "<group>"; };
+		0FC4892E2035139A0086CFCD /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		0FC4892F2035139A0086CFCD /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		0FC48932203514410086CFCD /* VertexObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexObject.cpp; sourceTree = "<group>"; };
+		0FC48933203514410086CFCD /* VertexObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexObject.hpp; sourceTree = "<group>"; };
+		0FC48935203514BA0086CFCD /* TestCase1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestCase1.cpp; sourceTree = "<group>"; };
+		0FC48936203514BA0086CFCD /* TestCase1.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestCase1.hpp; sourceTree = "<group>"; };
 		688208C11FF64937001FC4FC /* p1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = p1; sourceTree = BUILT_PRODUCTS_DIR; };
 		688208C41FF64937001FC4FC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		688208CB1FF65205001FC4FC /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.2.dylib; sourceTree = "<group>"; };
@@ -47,9 +59,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FC4892D203513200086CFCD /* common */ = {
+			isa = PBXGroup;
+			children = (
+				0FC4892E2035139A0086CFCD /* Shader.cpp */,
+				0FC4892F2035139A0086CFCD /* Shader.hpp */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		0FC48931203514140086CFCD /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				0FC48935203514BA0086CFCD /* TestCase1.cpp */,
+				0FC48936203514BA0086CFCD /* TestCase1.hpp */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		688208B81FF64936001FC4FC = {
 			isa = PBXGroup;
 			children = (
+				0FC4892D203513200086CFCD /* common */,
 				688208C31FF64937001FC4FC /* p1 */,
 				688208C21FF64937001FC4FC /* Products */,
 				688208CB1FF65205001FC4FC /* libglfw.3.2.dylib */,
@@ -69,7 +100,12 @@
 		688208C31FF64937001FC4FC /* p1 */ = {
 			isa = PBXGroup;
 			children = (
+				0FC48931203514140086CFCD /* Scene */,
 				688208C41FF64937001FC4FC /* main.cpp */,
+				0FC4892A203429360086CFCD /* Winform.cpp */,
+				0FC4892B203429360086CFCD /* Winform.h */,
+				0FC48932203514410086CFCD /* VertexObject.cpp */,
+				0FC48933203514410086CFCD /* VertexObject.hpp */,
 			);
 			path = p1;
 			sourceTree = "<group>";
@@ -139,6 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC48937203514BA0086CFCD /* TestCase1.cpp in Sources */,
+				0FC4892C203429360086CFCD /* Winform.cpp in Sources */,
+				0FC489302035139A0086CFCD /* Shader.cpp in Sources */,
+				0FC48934203514410086CFCD /* VertexObject.cpp in Sources */,
 				688208C51FF64937001FC4FC /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
