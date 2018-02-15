@@ -20,17 +20,27 @@ VertexObject::~VertexObject()
 
 void VertexObject::prepareData()
 {
-    GLfloat vertexPosData[9] = {
-        -1,-1,0,
-        1,-1,0,
-        0,1,0,
+    GLfloat vertexPosData[9 * 2] = {
+        -1,-1,0,        // p1 pos
+        1,0,0,          // p1 color
+        
+        1,-1,0,         // p2 pos
+        0,1,0,          // p2 color
+        
+        0,1,0,          // p3 pos
+        0,0,1,          // p3 color
     };
-    
-    
-//    GLfloat vertexPosData[9] = {
-//        -1,-1,1,
-//        1,-1,-1,
-//        0,0,-1,
+
+//    GLfloat vertexPosData[9 * 2] = {
+//        -1,-1,0,        // p1 pos
+//        1,0,0,          // p1 color
+//
+//        0,1,0,          // p3 pos
+//        0,1,0,          // p3 color
+//
+//        1,-1,0,         // p2 pos
+//        0,0,1,          // p2 color
+//
 //    };
 
 
@@ -62,7 +72,11 @@ void VertexObject::doDraw()
     glUseProgram(_programID);
     
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,0,(void*)0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,6 * sizeof(GL_FLOAT),(void*)0);
+    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,6 * sizeof(GL_FLOAT),(void*)(sizeof(GL_FLOAT) * 3));
+//    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE, 3* GL_FLOAT,(void*)0);
+//    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,3*GL_FLOAT,(void*)0);
     
     glDrawArrays(GL_TRIANGLES, 0, 3);
 

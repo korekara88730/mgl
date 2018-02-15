@@ -5,11 +5,15 @@ out vec3 color;
 
 //in vec3 pos;
 
+in vec3 vColor;
+
 void main()
 {
 
 	// Output color = red 
 	color = vec3(1,0,0);
+
+	color = vColor;
 
 
 	//color.r = color.r * pos.z;

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "VertexObject::prepareData():VertexObject.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "sizeof(vertexPosData)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "VertexObject::VertexObject():VertexObject.cpp">
       </ContextState>
    </ContextStates>
