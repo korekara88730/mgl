@@ -36,7 +36,7 @@ void VertexObject::prepareData()
 
     // gen VAO
     glGenVertexArrays(1,&_vao);
-    glBindVertexArray(_vao);
+//    glBindVertexArray(_vao);  // 这一步 没用。只有在 glUseProgram(),glEnableVertexAttribArray(),glVertexAttriPointer() 这种操作shader 和 给 shader 传数据的场合 ，之前 glBindVertexArray() 才有用
     // gen VBO
     glGenBuffers(1,&_vbo);
     glBindBuffer(GL_ARRAY_BUFFER,_vbo);
@@ -66,10 +66,10 @@ void VertexObject::doDraw()
     
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
-
+    glUseProgram(0);
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER,0);
-    glUseProgram(0);
+    
 }
 
 void VertexObject::cleanData()
