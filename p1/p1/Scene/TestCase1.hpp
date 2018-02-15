@@ -5,7 +5,10 @@
 
 class TestCase1
 {
+public:
     
+    void setup();
+    void cleanup();
     
 };
 

@@ -3,6 +3,10 @@
 #include <iostream>
 using namespace std;
 
+
+#include "VertexObject.hpp"
+VertexObject obj;
+
 bool Winform::setup(int width,int height,std::string winName)
 {
     if(!glfwInit())
@@ -34,11 +38,15 @@ bool Winform::setup(int width,int height,std::string winName)
     glfwGetFramebufferSize(_pWindow, &genWidth, &genHeight);
     glViewport(0, 0, genWidth, genHeight);
     
+    
+    prepareContent();
+    
     return true;
 }
 
 void Winform::cleanup()
 {
+    cleanContent();
     glfwTerminate();
 }
 
@@ -48,8 +56,25 @@ void Winform::mainLoop()
     {
         glClear(GL_COLOR_BUFFER_BIT);
         
+        obj.doDraw();
+        
         glfwPollEvents();
         glfwSwapBuffers(_pWindow);
     }
 }
+
+
+
+void Winform::prepareContent()
+{
+    obj.prepareData();
+}
+
+void Winform::cleanContent()
+{
+    obj.cleanData();
+}
+
+
+
 

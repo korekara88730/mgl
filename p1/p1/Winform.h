@@ -14,7 +14,9 @@ public:
     bool setup(int width,int height,std::string winName);
     void cleanup();
     void mainLoop();
-    
+private:
+    void prepareContent();
+    void cleanContent();
 private:
     GLFWwindow* _pWindow;
 };
