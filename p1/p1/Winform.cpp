@@ -68,9 +68,12 @@ void Winform::cleanup()
 
 void Winform::mainLoop()
 {
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
     while (!glfwWindowShouldClose(_pWindow))
     {
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT );
         
         obj.doDraw(_viewportW,_viewportH);
         
