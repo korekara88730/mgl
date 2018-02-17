@@ -79,7 +79,7 @@ void VertexObject::prepareData()
     };
     
     
-    
+    /*
     GLfloat vertexColorData[3 * 6 * 6] = {
         // front
         1,0,0,
@@ -135,6 +135,7 @@ void VertexObject::prepareData()
         1,1,1,
         1,0,1,
     };
+     */
 
     // gen VAO
     glGenVertexArrays(1,&_vao);
@@ -149,8 +150,10 @@ void VertexObject::prepareData()
     
     // gen color VBO
     glGenBuffers(1,&_vboColor);
+    /*
     glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
     glBufferData(GL_ARRAY_BUFFER,sizeof(vertexColorData),vertexColorData,GL_STATIC_DRAW);
+     */
     
     // finish bind
     glBindBuffer(GL_ARRAY_BUFFER,0);
@@ -159,6 +162,18 @@ void VertexObject::prepareData()
 
 void VertexObject::doDraw(int viewportW,int viewportH)
 {
+    // gen vertex color data
+    GLfloat vertexColorData[3 * 6 * 6];
+    for (int v = 0; v < 6 * 6 ; v++) {
+        vertexColorData[v * 3 + 0] = (float)(rand() % 100) / 100;
+        vertexColorData[v * 3 + 1] = (float)(rand() % 100) / 100;
+        vertexColorData[v * 3 + 2] = (float)(rand() % 100) / 100;
+    }
+    glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
+    glBufferData(GL_ARRAY_BUFFER,sizeof(vertexColorData),vertexColorData,GL_STREAM_DRAW);
+    
+    
+    // do draw vertice
     glBindVertexArray(_vao);
     glBindBuffer(GL_ARRAY_BUFFER,_vbo);
     glUseProgram(_programID);

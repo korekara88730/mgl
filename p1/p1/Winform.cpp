@@ -86,8 +86,6 @@ void Winform::mainLoop()
 
 void Winform::prepareContent()
 {
-
-    
     obj.prepareData();
 }
 
