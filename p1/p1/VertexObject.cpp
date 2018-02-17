@@ -68,6 +68,7 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     float zNear = 0.1f;
     float zFar = 100.f;
     glm::mat4 projectMatrix = glm::perspective(glm::radians(fovyAngle),aspectWH,zNear,zFar);
+//    glm::mat4 projectMatrix = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f);
     glm::mat4 mvp = projectMatrix * viewMatrix * modelMatrix;
     
     GLuint matrixID = glGetUniformLocation(_programID,"MVP");
