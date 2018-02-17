@@ -22,6 +22,7 @@ public:
 private:
     GLuint  _vao;
     GLuint  _vbo;
+    GLuint  _vboColor;
     GLuint  _programID;
 };
 

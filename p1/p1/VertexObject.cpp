@@ -6,6 +6,7 @@
 VertexObject::VertexObject()
 :_vao(0)
 ,_vbo(0)
+,_vboColor(0)
 ,_programID(0)
 {
 
@@ -19,15 +20,120 @@ VertexObject::~VertexObject()
 
 void VertexObject::prepareData()
 {
-    GLfloat vertexPosData[9 * 2] = {
-        -1,-1,0,        // p1 pos
-        1,0,0,          // p1 color
+    GLfloat vertexPosData[3 * 6 * 6] = {
+        // front
+        -1,-1,1,
+        -1,1,1,
+        1,-1,1,
+
+        -1,1,1,
+        1,-1,1,
+        1,1,1,
         
-        1,-1,0,         // p2 pos
-        0,1,0,          // p2 color
+        // back
+        -1,-1,-1,
+        -1,1,-1,
+        1,-1,-1,
         
-        0,1,0,          // p3 pos
-        0,0,1,          // p3 color
+        -1,1,-1,
+        1,-1,-1,
+        1,1,-1,
+        
+        // up
+        -1,1,1,
+        -1,1,-1,
+        1,1,1,
+        
+        -1,1,-1,
+        1,1,1,
+        1,1,-1,
+        
+        // bottom
+        -1,-1,1,
+        -1,-1,-1,
+        1,-1,1,
+        
+        -1,-1,-1,
+        1,-1,1,
+        1,-1,-1,
+        
+        // right
+        
+        1,-1,1,
+        1,1,1,
+        1,-1,-1,
+        
+        1,1,1,
+        1,-1,-1,
+        1,1,-1,
+        
+        // left
+        
+        -1,-1,1,
+        -1,1,1,
+        -1,-1,-1,
+        
+        -1,1,1,
+        -1,-1,-1,
+        -1,1,-1,
+    };
+    
+    
+    
+    GLfloat vertexColorData[3 * 6 * 6] = {
+        // front
+        1,0,0,
+        0,1,0,
+        0,0,1,
+        
+        1,1,0,
+        1,1,1,
+        1,0,1,
+        
+        // back
+        1,0,0,
+        0,1,0,
+        0,0,1,
+        
+        1,1,0,
+        1,1,1,
+        1,0,1,
+        
+        // up
+        1,0,0,
+        0,1,0,
+        0,0,1,
+        
+        1,1,0,
+        1,1,1,
+        1,0,1,
+        
+        // bottom
+        1,0,0,
+        0,1,0,
+        0,0,1,
+        
+        1,1,0,
+        1,1,1,
+        1,0,1,
+        
+        // right
+        1,0,0,
+        0,1,0,
+        0,0,1,
+        
+        1,1,0,
+        1,1,1,
+        1,0,1,
+        
+        // left
+        1,0,0,
+        0,1,0,
+        0,0,1,
+        
+        1,1,0,
+        1,1,1,
+        1,0,1,
     };
 
     // gen VAO
@@ -40,6 +146,11 @@ void VertexObject::prepareData()
     glBufferData(GL_ARRAY_BUFFER,sizeof(vertexPosData),vertexPosData,GL_STATIC_DRAW);
     // shader
     _programID = LoadShaders("./shaders/SimpleVertexShader.vertexshader","./shaders/SimpleFragmentShader.fragmentshader");
+    
+    // gen color VBO
+    glGenBuffers(1,&_vboColor);
+    glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
+    glBufferData(GL_ARRAY_BUFFER,sizeof(vertexColorData),vertexColorData,GL_STATIC_DRAW);
     
     // finish bind
     glBindBuffer(GL_ARRAY_BUFFER,0);
@@ -55,8 +166,12 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     // pass param to shader
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,6 * sizeof(GL_FLOAT),(void*)0);
-    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,6 * sizeof(GL_FLOAT),(void*)(sizeof(GL_FLOAT) * 3));
+    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3 * sizeof(GL_FLOAT),(void*)0);
+//    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,6 * sizeof(GL_FLOAT),(void*)(sizeof(GL_FLOAT) * 3));
+    
+    // color data to shader
+    glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
+    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,3 * sizeof(GL_FLOAT),(void*)0);
     
     // mvp param to shader
     glm::mat4 modelMatrix = glm::mat4(1.0f);
@@ -75,7 +190,8 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]);
 
     
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+//    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 
     glUseProgram(0);
     glBindVertexArray(0);
@@ -94,6 +210,11 @@ void VertexObject::cleanData()
     {
         glDeleteBuffers(1,&_vbo);
         _vbo = 0;
+    }
+    if(_vboColor != 0)
+    {
+        glDeleteBuffers(1,&_vboColor);
+        _vboColor = 0;
     }
     if(_programID != 0)
     {
