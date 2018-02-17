@@ -5,7 +5,24 @@ using namespace std;
 
 
 #include "VertexObject.hpp"
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
+
 VertexObject obj;
+
+
+Winform::Winform()
+:_viewportW(0)
+,_viewportH(0)
+{
+    
+    
+}
+
+Winform::~Winform()
+{
+    
+}
 
 bool Winform::setup(int width,int height,std::string winName)
 {
@@ -34,10 +51,9 @@ bool Winform::setup(int width,int height,std::string winName)
         glfwTerminate();
         return false;
     }
-    int genWidth, genHeight;
-    glfwGetFramebufferSize(_pWindow, &genWidth, &genHeight);
-    glViewport(0, 0, genWidth, genHeight);
-    
+
+    glfwGetFramebufferSize(_pWindow, &_viewportW, &_viewportH);
+    glViewport(0, 0, _viewportW, _viewportH);
     
     prepareContent();
     
@@ -56,7 +72,7 @@ void Winform::mainLoop()
     {
         glClear(GL_COLOR_BUFFER_BIT);
         
-        obj.doDraw();
+        obj.doDraw(_viewportW,_viewportH);
         
         glfwPollEvents();
         glfwSwapBuffers(_pWindow);
@@ -67,6 +83,8 @@ void Winform::mainLoop()
 
 void Winform::prepareContent()
 {
+
+    
     obj.prepareData();
 }
 

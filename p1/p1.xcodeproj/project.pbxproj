@@ -31,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0FB1AF4C2037CC8400B24F79 /* glm-0.9.7.1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "glm-0.9.7.1"; path = "../external/glm-0.9.7.1"; sourceTree = "<group>"; };
 		0FC4892A203429360086CFCD /* Winform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Winform.cpp; sourceTree = "<group>"; };
 		0FC4892B203429360086CFCD /* Winform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Winform.h; sourceTree = "<group>"; };
 		0FC48932203514410086CFCD /* VertexObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexObject.cpp; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		688208CF1FF67B48001FC4FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FB1AF4C2037CC8400B24F79 /* glm-0.9.7.1 */,
 				688208D01FF67B48001FC4FC /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -298,6 +300,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glew/2.1.0/include,
 					/usr/local/Cellar/glfw/3.2.1/include,
+					"/Users/miaoyunlong/Desktop/mgl/mgl/external/glm-0.9.7.1/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,6 +317,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glew/2.1.0/include,
 					/usr/local/Cellar/glfw/3.2.1/include,
+					"/Users/miaoyunlong/Desktop/mgl/mgl/external/glm-0.9.7.1/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

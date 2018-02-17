@@ -11,6 +11,9 @@
 
 class Winform{
 public:
+    Winform();
+    virtual ~Winform();
+    
     bool setup(int width,int height,std::string winName);
     void cleanup();
     void mainLoop();
@@ -19,6 +22,7 @@ private:
     void cleanContent();
 private:
     GLFWwindow* _pWindow;
+    int _viewportW,_viewportH;
 };
 
 #endif /* Winform_hpp */

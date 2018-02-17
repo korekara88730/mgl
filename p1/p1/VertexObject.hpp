@@ -3,6 +3,8 @@
 #define VertexObject_hpp
 
 #include <GL/glew.h>
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
 class VertexObject
 {
@@ -11,12 +13,12 @@ public:
     virtual ~VertexObject();
     
     void prepareData();
-    void doDraw();
+    void doDraw(int viewportW,int viewportH);
     void cleanData();
     
-private:
-    void prepareFakeData();
-    
+//private:
+//    void prepareFakeData();
+//
 private:
     GLuint  _vao;
     GLuint  _vbo;
