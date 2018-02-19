@@ -267,7 +267,8 @@ void VertexObject::prepareTexture()
     glGenTextures(1,&_texID1);
     glBindTexture(GL_TEXTURE_2D,_texID1);
     
-    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB4,bitmap.width,bitmap.height,0,GL_RGB,GL_UNSIGNED_BYTE,bitmap.data);
+//  glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,bitmap.width,bitmap.height,0,GL_BGR,GL_UNSIGNED_BYTE,bitmap.data);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
