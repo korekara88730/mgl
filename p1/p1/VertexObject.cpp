@@ -191,7 +191,7 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     
 //     uv data to shader
     glBindBuffer(GL_ARRAY_BUFFER,_vboUV);
-    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,2 * sizeof(GL_FLOAT),(void*)0);
+    glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,2 * sizeof(GL_FLOAT),(void*)0);
     
     // mvp param to shader
     glm::mat4 modelMatrix = glm::mat4(1.0f);
