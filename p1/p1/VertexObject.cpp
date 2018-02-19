@@ -7,7 +7,9 @@ VertexObject::VertexObject()
 :_vao(0)
 ,_vbo(0)
 ,_vboColor(0)
+,_vboUV(0)
 ,_programID(0)
+,_texID1(0)
 {
 
 }
@@ -79,67 +81,68 @@ void VertexObject::prepareData()
     };
     
     
-    /*
-    GLfloat vertexColorData[3 * 6 * 6] = {
+    GLfloat vertexUVData[2 * 6 * 6] = {
         // front
-        1,0,0,
-        0,1,0,
-        0,0,1,
+        0,0,
+        0,1,
+        1,0,
         
-        1,1,0,
-        1,1,1,
-        1,0,1,
+        0,1,
+        1,0,
+        1,1,
         
         // back
-        1,0,0,
-        0,1,0,
-        0,0,1,
+        0,0,
+        0,1,
+        1,0,
         
-        1,1,0,
-        1,1,1,
-        1,0,1,
+        0,1,
+        1,0,
+        1,1,
         
         // up
-        1,0,0,
-        0,1,0,
-        0,0,1,
+        0,0,
+        0,1,
+        1,0,
         
-        1,1,0,
-        1,1,1,
-        1,0,1,
+        0,1,
+        1,0,
+        1,1,
         
         // bottom
-        1,0,0,
-        0,1,0,
-        0,0,1,
+        0,0,
+        0,1,
+        1,0,
         
-        1,1,0,
-        1,1,1,
-        1,0,1,
+        0,1,
+        1,0,
+        1,1,
+        
         
         // right
-        1,0,0,
-        0,1,0,
-        0,0,1,
+        0,0,
+        0,1,
+        1,0,
         
-        1,1,0,
-        1,1,1,
-        1,0,1,
+        0,1,
+        1,0,
+        1,1,
+        
         
         // left
-        1,0,0,
-        0,1,0,
-        0,0,1,
+        0,0,
+        0,1,
+        1,0,
         
-        1,1,0,
-        1,1,1,
-        1,0,1,
+        0,1,
+        1,0,
+        1,1,
     };
-     */
+
 
     // gen VAO
     glGenVertexArrays(1,&_vao);
-//    glBindVertexArray(_vao);  // 这一步 没用。只有在 glUseProgram(),glEnableVertexAttribArray(),glVertexAttriPointer() 这种操作shader 和 给 shader 传数据的场合 ，之前 glBindVertexArray() 才有用
+    
     // gen VBO
     glGenBuffers(1,&_vbo);
     glBindBuffer(GL_ARRAY_BUFFER,_vbo);
@@ -148,20 +151,22 @@ void VertexObject::prepareData()
     // shader
     _programID = LoadShaders("./shaders/SimpleVertexShader.vertexshader","./shaders/SimpleFragmentShader.fragmentshader");
     
-    // gen color VBO
-    glGenBuffers(1,&_vboColor);
-    /*
-    glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
-    glBufferData(GL_ARRAY_BUFFER,sizeof(vertexColorData),vertexColorData,GL_STATIC_DRAW);
-     */
-    
+    // gen UV vbo
+    glGenBuffers(1,&_vboUV);
+    glBindBuffer(GL_ARRAY_BUFFER,_vboUV);
+    glBufferData(GL_ARRAY_BUFFER,sizeof(vertexUVData),vertexUVData,GL_STATIC_DRAW);
+
     // finish bind
     glBindBuffer(GL_ARRAY_BUFFER,0);
     glBindVertexArray(0);
+    
+    
+    prepareTexture();
 }
 
 void VertexObject::doDraw(int viewportW,int viewportH)
 {
+    /*
     // gen vertex color data
     GLfloat vertexColorData[3 * 6 * 6];
     for (int v = 0; v < 6 * 6 ; v++) {
@@ -171,7 +176,7 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     }
     glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
     glBufferData(GL_ARRAY_BUFFER,sizeof(vertexColorData),vertexColorData,GL_STREAM_DRAW);
-    
+    */
     
     // do draw vertice
     glBindVertexArray(_vao);
@@ -184,9 +189,9 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3 * sizeof(GL_FLOAT),(void*)0);
 //    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,6 * sizeof(GL_FLOAT),(void*)(sizeof(GL_FLOAT) * 3));
     
-    // color data to shader
-    glBindBuffer(GL_ARRAY_BUFFER,_vboColor);
-    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,3 * sizeof(GL_FLOAT),(void*)0);
+//     uv data to shader
+    glBindBuffer(GL_ARRAY_BUFFER,_vboUV);
+    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,2 * sizeof(GL_FLOAT),(void*)0);
     
     // mvp param to shader
     glm::mat4 modelMatrix = glm::mat4(1.0f);
@@ -205,12 +210,17 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]);
 
     
+    // texture
+     glBindTexture(GL_TEXTURE_2D,_texID1);
+    
 //    glDrawArrays(GL_TRIANGLES, 0, 3);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     glUseProgram(0);
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER,0);
+    glBindTexture(GL_TEXTURE_2D,0);
+    
     
 }
 
@@ -231,9 +241,38 @@ void VertexObject::cleanData()
         glDeleteBuffers(1,&_vboColor);
         _vboColor = 0;
     }
+    if(_vboUV != 0)
+    {
+        glDeleteBuffers(1,&_vboUV);
+        _vboUV = 0;
+    }
     if(_programID != 0)
     {
         glDeleteProgram(_programID);
         _programID = 0;
     }
+    
+    if(_texID1 != 0)
+    {
+        glDeleteTextures(1,&_texID1);
+    }
 }
+
+
+void VertexObject::prepareTexture()
+{
+    The24BitBmp bitmap;
+    loadBmp("bmp/laoshi.bmp",bitmap);
+    
+    glGenTextures(1,&_texID1);
+    glBindTexture(GL_TEXTURE_2D,_texID1);
+    
+    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB4,bitmap.width,bitmap.height,0,GL_RGB,GL_UNSIGNED_BYTE,bitmap.data);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    
+    glBindTexture(GL_TEXTURE_2D,0);
+}
+
+

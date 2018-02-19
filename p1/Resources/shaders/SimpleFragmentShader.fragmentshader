@@ -2,9 +2,10 @@
 
 // Ouput data
 out vec3 color;
-in vec3 vColor;
+in vec2 UV;
+uniform sampler2D myTextureSampler;
 
 void main()
 {
-	color = vColor;
+	color = texture(myTextureSampler,UV).rgb;
 }
