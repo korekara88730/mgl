@@ -5,8 +5,7 @@ using namespace std;
 
 
 #include "VertexObject.hpp"
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
+
 
 VertexObject obj;
 
@@ -71,11 +70,32 @@ void Winform::mainLoop()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
+    
+    
+    
+    // Ensure we can capture the escape key being pressed below
+//    glfwSetInputMode(_pWindow, GLFW_STICKY_KEYS, GL_TRUE);
+    // Hide the mouse and enable unlimited mouvement
+    glfwSetInputMode(_pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    
     while (!glfwWindowShouldClose(_pWindow))
     {
+        // delta time
+        double currentTime = glfwGetTime();
+        static double lastTime = glfwGetTime();
+        float deltaTime = float(currentTime - lastTime);
+        lastTime = currentTime;
+
+        // update
+        _control.computeMatricesFromInputs(_pWindow,deltaTime);
+        
+        // renderer
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT );
         
-        obj.doDraw(_viewportW,_viewportH);
+        
+        glm::mat4 viewMatrix = _control.getViewMatrix();
+        glm::mat4 projectionMatrix = _control.getProjectionMatrix();
+        obj.doDraw(_viewportW,_viewportH,viewMatrix,projectionMatrix);
         
         glfwPollEvents();
         glfwSwapBuffers(_pWindow);

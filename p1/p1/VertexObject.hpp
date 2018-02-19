@@ -15,7 +15,7 @@ public:
     virtual ~VertexObject();
     
     void prepareData();
-    void doDraw(int viewportW,int viewportH);
+    void doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm::mat4& projectionMatrix);
     void cleanData();
     
 //private:

@@ -164,7 +164,7 @@ void VertexObject::prepareData()
     prepareTexture();
 }
 
-void VertexObject::doDraw(int viewportW,int viewportH)
+void VertexObject::doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm::mat4& projectionMatrix)
 {
     /*
     // gen vertex color data
@@ -195,17 +195,7 @@ void VertexObject::doDraw(int viewportW,int viewportH)
     
     // mvp param to shader
     glm::mat4 modelMatrix = glm::mat4(1.0f);
-    glm::mat4 viewMatrix = glm::lookAt(glm::vec3(4,3,3),
-                                       glm::vec3(0,0,0),
-                                       glm::vec3(0,1,0));
-    float fovyAngle = 45;
-    float aspectWH = (float)viewportW/(float)viewportH;
-    float zNear = 0.1f;
-    float zFar = 100.f;
-    glm::mat4 projectMatrix = glm::perspective(glm::radians(fovyAngle),aspectWH,zNear,zFar);
-//    glm::mat4 projectMatrix = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f);
-    glm::mat4 mvp = projectMatrix * viewMatrix * modelMatrix;
-    
+    glm::mat4 mvp = projectionMatrix * viewMatrix * modelMatrix;
     GLuint matrixID = glGetUniformLocation(_programID,"MVP");
     glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]);
 

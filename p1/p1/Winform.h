@@ -7,7 +7,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-
+#include "control/Control.hpp"
 
 class Winform{
 public:
@@ -23,6 +23,8 @@ private:
 private:
     GLFWwindow* _pWindow;
     int _viewportW,_viewportH;
+    
+    Control _control;
 };
 
 #endif /* Winform_hpp */
