@@ -2,6 +2,8 @@
 #include "VertexObject.hpp"
 #include <stdio.h>
 #include "common/Shader.hpp"
+#include "objloader/ObjLoader.hpp"
+
 
 VertexObject::VertexObject()
 :_vao(0)
@@ -162,6 +164,7 @@ void VertexObject::prepareData()
     
     
     prepareTexture();
+    prepareModel();
 }
 
 void VertexObject::doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm::mat4& projectionMatrix)
@@ -267,3 +270,9 @@ void VertexObject::prepareTexture()
 }
 
 
+void VertexObject::prepareModel()
+{
+//    loadObj("./obj");
+    loadObj("./json/test.json");
+//    loadObj("./json/test2.json");
+}

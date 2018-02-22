@@ -24,6 +24,7 @@ public:
     
 private:
     void prepareTexture();
+    void prepareModel();
     
 private:
     GLuint  _vao;
