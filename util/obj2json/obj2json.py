@@ -52,49 +52,56 @@ def handleLine(line):
 	global normals
 	global faces
 
-	
-	if line.find("v ") == 0:
-		# vertice
-		line.replace("\n","");
-		arr = line.split(" ");
-		info = {};
-		info["x"] = float(arr[1]);
-		info["y"] = float(arr[2]);
-		info["z"] = float(arr[3]);
-		vertice.append(info);
-	elif line.find("vt ") == 0:
-		# uvs
-		line.replace("\n","");
-		arr = line.split(" ");
-		info = {};
-		info["u"] = float(arr[1]);
-		info["v"] = float(arr[2]);
-		uvs.append(info);
-	elif line.find("vn ") == 0:
-		# normals
-		line.replace("\n","");
-		arr = line.split(" ");
-		info = {};
-		info["x"] = float(arr[1]);
-		info["y"] = float(arr[2]);
-		info["z"] = float(arr[3]);
-		normals.append(info);
-	elif line.find("f ") == 0:
-		# faces
-		line.replace("\n","");
-		arr = line.split(" ");
-		faceInfo = [];
-		for index in range(1,4):
-			# 127/997/997
-			wholeInfo = arr[index];
-			vinfo = wholeInfo.split("/");
-			detail = {}
-			detail["vertexIndex"] = int(vinfo[0]);
-			detail["uvIndex"] = int(vinfo[1]);
-			detail["normalIndex"] = int(vinfo[2]);
-			faceInfo.append(detail);
-		# if len(faces) <= 2:
-		faces.append(faceInfo);
+	try:
+		if line.find("v ") == 0:
+			# vertice
+			line.replace("\n","");
+			arr = line.split(" ");
+			info = {};
+			info["x"] = float(arr[1]);
+			info["y"] = float(arr[2]);
+			info["z"] = float(arr[3]);
+			vertice.append(info);
+		elif line.find("vt ") == 0:
+			# uvs
+			line.replace("\n","");
+			arr = line.split(" ");
+			info = {};
+			info["u"] = float(arr[1]);
+			info["v"] = float(arr[2]);
+			uvs.append(info);
+		elif line.find("vn ") == 0:
+			# normals
+			line.replace("\n","");
+			arr = line.split(" ");
+			info = {};
+			info["x"] = float(arr[1]);
+			info["y"] = float(arr[2]);
+			info["z"] = float(arr[3]);
+			normals.append(info);
+		elif line.find("f ") == 0:
+			# faces
+			line.replace("\n","");
+			arr = line.split(" ");
+			faceInfo = [];
+			for index in range(1,4):
+				# 127/997/997
+				wholeInfo = arr[index];
+				vinfo = wholeInfo.split("/");
+				detail = {}
+				if len(vertice) > 0:
+					detail["vertexIndex"] = int(vinfo[0]);
+				if len(uvs) > 0:
+					detail["uvIndex"] = int(vinfo[1]);
+				if len(normals) > 0:
+					detail["normalIndex"] = int(vinfo[2]);
+				faceInfo.append(detail);
+			# if len(faces) <= 2:
+			faces.append(faceInfo);
+	except:
+		print("Handle line occur error!line:");
+		print(line);
+		
 
 def exportJson(filePath):
 	global vertice;
@@ -114,6 +121,8 @@ def exportJson(filePath):
 	jsonFile = open(outName,"w");
 	jsonFile.write(strJson);
 	jsonFile.close();
+
+	print("Output File:" + outName);
 
 
 def startJob(filePath):
