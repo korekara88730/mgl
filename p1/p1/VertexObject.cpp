@@ -12,6 +12,7 @@ VertexObject::VertexObject()
 ,_vboUV(0)
 ,_programID(0)
 ,_texID1(0)
+,_model(nullptr)
 {
 
 }
@@ -183,7 +184,10 @@ void VertexObject::doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm:
     
     // do draw vertice
     glBindVertexArray(_vao);
+    
+    // @miao @todo
     glBindBuffer(GL_ARRAY_BUFFER,_vbo);
+//    glBindBuffer(GL_ARRAY_BUFFER,_model->getPosVBO());
     glUseProgram(_programID);
     
     // pass param to shader
@@ -275,5 +279,5 @@ void VertexObject::prepareModel()
 //    loadObj("./obj");
 //    loadObj("./json/test.json");
 //    loadObj("./json/test2.json");
-    loadObj("./model/pikachu.obj.json");
+    _model = loadObj("./model/box.obj.json");
 }

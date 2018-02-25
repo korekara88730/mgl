@@ -1,6 +1,9 @@
 
 #include "Control.hpp"
 
+
+const bool bEnableMouse = false;
+
 Control::Control()
 :_position(glm::vec3( 0, 0, 5 ))
 ,_horizontalAngle(3.14f)
@@ -31,8 +34,11 @@ void Control::computeMatricesFromInputs(GLFWwindow* pWindow,float deltaTime)
     float deltaX = float(winWidth/2 - xpos);
     float deltaY = float(winHeight/2 - ypos);
 //    printf("mouse x,y:(%.3f,%.3f)\n",xpos,ypos);
-    _horizontalAngle += _mouseSpeed * deltaX;
-    _verticalAngle += _mouseSpeed * deltaY;
+    
+    if(bEnableMouse){
+        _horizontalAngle += _mouseSpeed * deltaX;
+        _verticalAngle += _mouseSpeed * deltaY;
+    }
     
     
     glm::vec3 direction(

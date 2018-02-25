@@ -7,6 +7,7 @@
 #include <glm/ext.hpp>
 
 #include "imgloader/BmpLoader.hpp"
+#include "objloader/ObjLoader.hpp"
 
 class VertexObject
 {
@@ -34,6 +35,9 @@ private:
     GLuint  _programID;
     
     GLuint  _texID1;
+    ObjModel*   _model;
+    
+    
 };
 
 #endif /* VertexObject_hpp */

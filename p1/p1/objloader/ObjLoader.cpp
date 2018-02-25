@@ -42,7 +42,7 @@ void ObjModel::initWithJson(cJSON* pJson)
     _faceCnt = faceCnt;
     
     int posDataLen = faceCnt * FACE_VERTICE_CNT;
-    _verticePosData = new float[posDataLen];
+    _verticePosData = new GLfloat[posDataLen];
     for(int index = 0;index < faceCnt;index++)
     {
         cJSON* faceData = cJSON_GetArrayItem(faces,index);
@@ -51,9 +51,9 @@ void ObjModel::initWithJson(cJSON* pJson)
             cJSON* vertexPosData = cJSON_GetObjectItem(cJSON_GetArrayItem(faceData,vIndex),"vertexIndex");
             int vertexIndex = vertexPosData->valueint;
             cJSON* allVertice = cJSON_GetObjectItem(pJson,"vertice");
-            float x = (float)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"x")->valuedouble;
-            float y = (float)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"y")->valuedouble;
-            float z = (float)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"z")->valuedouble;
+            GLfloat x = (GLfloat)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"x")->valuedouble;
+            GLfloat y = (GLfloat)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"y")->valuedouble;
+            GLfloat z = (GLfloat)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"z")->valuedouble;
             _verticePosData[index * FACE_VERTICE_CNT + vIndex] = x;
             _verticePosData[index * FACE_VERTICE_CNT + vIndex] = y;
             _verticePosData[index * FACE_VERTICE_CNT + vIndex] = z;
@@ -62,7 +62,8 @@ void ObjModel::initWithJson(cJSON* pJson)
     // gen pos vbo
     glGenBuffers(1,&_vboPos);
     glBindBuffer(GL_ARRAY_BUFFER,_vboPos);
-    glBufferData(GL_ARRAY_BUFFER,sizeof(_verticePosData),_verticePosData,GL_STATIC_DRAW);
+    //glBufferData(GL_ARRAY_BUFFER,sizeof(_verticePosData),_verticePosData,GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER,sizeof(GLfloat) * posDataLen,_verticePosData,GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER,0);
 }
 

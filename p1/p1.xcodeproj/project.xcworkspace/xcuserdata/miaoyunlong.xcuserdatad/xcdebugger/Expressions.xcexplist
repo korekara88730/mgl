@@ -23,7 +23,13 @@
          contextName = "ObjModel::initWithJson(cJSON*):ObjLoader.cpp">
          <PersistentStrings>
             <PersistentString
+               value = "sizeof(float)">
+            </PersistentString>
+            <PersistentString
                value = "index*FACE_VERTICE_CNT+vIndex">
+            </PersistentString>
+            <PersistentString
+               value = "sizeof(_verticePosData)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

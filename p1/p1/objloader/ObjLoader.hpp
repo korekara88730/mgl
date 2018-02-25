@@ -18,9 +18,9 @@ public:
     int getFaceCnt(){ return _faceCnt;}
     
 private:
-    float* _verticePosData;
-    float* _verticeUVData;
-    float* _verticeNormalData;
+    GLfloat* _verticePosData;
+    GLfloat* _verticeUVData;
+    GLfloat* _verticeNormalData;
     
 private:
 //    GLuint  _vao;
