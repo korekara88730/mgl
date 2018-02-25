@@ -1,10 +1,3 @@
-//
-//  ObjLoader.cpp
-//  p1
-//
-//  Created by miaoyunlong on 21/02/2018.
-//  Copyright © 2018 playcrab. All rights reserved.
-//
 
 #include "ObjLoader.hpp"
 #include "cJSON.h"
@@ -41,8 +34,12 @@ void ObjModel::initWithJson(cJSON* pJson)
     
     _faceCnt = faceCnt;
     
-    int posDataLen = faceCnt * FACE_VERTICE_CNT;
+    int posDataLen = faceCnt * FACE_VERTICE_CNT * 3;
     _verticePosData = new GLfloat[posDataLen];
+    
+    _verticeCnt = posDataLen;
+    
+    int subscriptIndex = 0;
     for(int index = 0;index < faceCnt;index++)
     {
         cJSON* faceData = cJSON_GetArrayItem(faces,index);
@@ -54,9 +51,12 @@ void ObjModel::initWithJson(cJSON* pJson)
             GLfloat x = (GLfloat)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"x")->valuedouble;
             GLfloat y = (GLfloat)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"y")->valuedouble;
             GLfloat z = (GLfloat)cJSON_GetObjectItem(cJSON_GetArrayItem(allVertice,vertexIndex - 1),"z")->valuedouble;
-            _verticePosData[index * FACE_VERTICE_CNT + vIndex] = x;
-            _verticePosData[index * FACE_VERTICE_CNT + vIndex] = y;
-            _verticePosData[index * FACE_VERTICE_CNT + vIndex] = z;
+            
+            // @miao @todo
+            // 这里 下标 计算有 bug ！
+            _verticePosData[subscriptIndex++] = x;
+            _verticePosData[subscriptIndex++] = y;
+            _verticePosData[subscriptIndex++] = z;
         }
     }
     // gen pos vbo
@@ -89,17 +89,6 @@ ObjModel* loadObj(std::string path)
     {
         printf("Can not parse JSON object.");
     }
-    // test json case
-    /*
-    cJSON* vertice = cJSON_GetObjectItem(pJson,"vertice");
-    int verticeCnt = cJSON_GetArraySize(vertice);
-
-    cJSON* item = cJSON_GetArrayItem(vertice,1);
-    
-    float val = item->valuedouble;
-    
-    cJSON* test = cJSON_GetObjectItem(pJson,"xxx");
-    */
     
     ObjModel* pObj = new ObjModel();
     pObj->initWithJson(pJson);

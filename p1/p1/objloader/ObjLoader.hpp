@@ -16,6 +16,7 @@ public:
     
     GLuint getPosVBO(){ return _vboPos;}
     int getFaceCnt(){ return _faceCnt;}
+    int getVerticeCnt(){ return _verticeCnt; }
     
 private:
     GLfloat* _verticePosData;
@@ -30,6 +31,7 @@ private:
     
     
     int _faceCnt;
+    int _verticeCnt;
     
 };
 

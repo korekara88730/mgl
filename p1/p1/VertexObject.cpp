@@ -186,8 +186,8 @@ void VertexObject::doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm:
     glBindVertexArray(_vao);
     
     // @miao @todo
-    glBindBuffer(GL_ARRAY_BUFFER,_vbo);
-//    glBindBuffer(GL_ARRAY_BUFFER,_model->getPosVBO());
+//    glBindBuffer(GL_ARRAY_BUFFER,_vbo);
+    glBindBuffer(GL_ARRAY_BUFFER,_model->getPosVBO());
     glUseProgram(_programID);
     
     // pass param to shader
@@ -202,6 +202,11 @@ void VertexObject::doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm:
     
     // mvp param to shader
     glm::mat4 modelMatrix = glm::mat4(1.0f);
+    
+    // @miao @todo
+    // scale modelMatrix
+    
+    
     glm::mat4 mvp = projectionMatrix * viewMatrix * modelMatrix;
     GLuint matrixID = glGetUniformLocation(_programID,"MVP");
     glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]);
@@ -211,7 +216,8 @@ void VertexObject::doDraw(int viewportW,int viewportH,glm::mat4& viewMatrix,glm:
      glBindTexture(GL_TEXTURE_2D,_texID1);
     
 //    glDrawArrays(GL_TRIANGLES, 0, 3);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+//    glDrawArrays(GL_TRIANGLES, 0, 36);
+    glDrawArrays(GL_TRIANGLES,0,_model->getVerticeCnt());
 
     glUseProgram(0);
     glBindVertexArray(0);
@@ -280,4 +286,5 @@ void VertexObject::prepareModel()
 //    loadObj("./json/test.json");
 //    loadObj("./json/test2.json");
     _model = loadObj("./model/box.obj.json");
+//    _model = loadObj("./model/pikachu.obj.json");
 }

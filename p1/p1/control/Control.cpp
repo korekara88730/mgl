@@ -2,7 +2,7 @@
 #include "Control.hpp"
 
 
-const bool bEnableMouse = false;
+const bool bEnableMouse = true;
 
 Control::Control()
 :_position(glm::vec3( 0, 0, 5 ))
