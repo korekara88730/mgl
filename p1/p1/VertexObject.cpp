@@ -273,6 +273,7 @@ void VertexObject::prepareTexture()
 void VertexObject::prepareModel()
 {
 //    loadObj("./obj");
-    loadObj("./json/test.json");
+//    loadObj("./json/test.json");
 //    loadObj("./json/test2.json");
+    loadObj("./model/pikachu.obj.json");
 }
