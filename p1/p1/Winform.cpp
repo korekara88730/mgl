@@ -4,12 +4,6 @@
 using namespace std;
 
 
-#include "VertexObject.hpp"
-
-
-VertexObject obj;
-
-
 Winform::Winform()
 :_viewportW(0)
 ,_viewportH(0)
@@ -74,11 +68,6 @@ void Winform::mainLoop()
     // culling
 //    glEnable(GL_CULL_FACE);
     
-    // Ensure we can capture the escape key being pressed below
-//    glfwSetInputMode(_pWindow, GLFW_STICKY_KEYS, GL_TRUE);
-    // Hide the mouse and enable unlimited mouvement
-    glfwSetInputMode(_pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    
     while (!glfwWindowShouldClose(_pWindow))
     {
         // delta time
@@ -86,17 +75,14 @@ void Winform::mainLoop()
         static double lastTime = glfwGetTime();
         float deltaTime = float(currentTime - lastTime);
         lastTime = currentTime;
-
-        // update
-        _control.computeMatricesFromInputs(_pWindow,deltaTime);
         
         // renderer
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT );
         
-        
-        glm::mat4 viewMatrix = _control.getViewMatrix();
-        glm::mat4 projectionMatrix = _control.getProjectionMatrix();
-        obj.doDraw(_viewportW,_viewportH,viewMatrix,projectionMatrix);
+        if(_pGame != nullptr) {
+            _pGame->update(deltaTime);
+            _pGame->draw();
+        }
         
         glfwPollEvents();
         glfwSwapBuffers(_pWindow);
@@ -105,14 +91,17 @@ void Winform::mainLoop()
 
 
 
-void Winform::prepareContent()
-{
-    obj.prepareData();
+void Winform::prepareContent() {
+    _pGame = new RetroGame();
+    _pGame->init();
+    _pGame->startGame();
 }
 
-void Winform::cleanContent()
-{
-    obj.cleanData();
+void Winform::cleanContent() {
+    if(_pGame != nullptr) {
+        delete _pGame;
+        _pGame = nullptr;
+    }
 }
 
 

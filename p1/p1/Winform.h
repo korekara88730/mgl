@@ -7,7 +7,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include "control/Control.hpp"
+#include "RetroLike/RetroGame.hpp"
 
 class Winform{
 public:
@@ -24,7 +24,7 @@ private:
     GLFWwindow* _pWindow;
     int _viewportW,_viewportH;
     
-    Control _control;
+    RetroGame*  _pGame = nullptr;
 };
 
 #endif /* Winform_hpp */
