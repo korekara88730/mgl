@@ -14,6 +14,7 @@ using namespace std;
 
 #include <stdio.h>
 #include "Drawable.hpp"
+#include "ObjectManager.hpp"
 
 class GameWorld {
     
@@ -25,9 +26,11 @@ public:
     void update(float deltaTime);
     void draw();
     
-private:
     
+    
+private:
     vector<Drawable*> _allDrawable;
+    ObjectManager*  _objectManager = nullptr;
 };
 
 #endif /* GameWorld_hpp */

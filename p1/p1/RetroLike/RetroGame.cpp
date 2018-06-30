@@ -7,6 +7,8 @@
 //
 
 #include "RetroGame.hpp"
+#include "ModelComponent.hpp"
+
 
 RetroGame::RetroGame() {
     
@@ -28,12 +30,14 @@ void RetroGame::init() {
 void RetroGame::initWorlds() {
     if(_pGameWorld == nullptr){
         _pGameWorld = new GameWorld();
+        
     }
 }
 
 void RetroGame::startGame() {
-    
-    
+    // test objects
+    auto obj1 = ObjectManager::getInstance()->createObject();
+    obj1->addComponent<ModelComponent>();
 }
 
 void RetroGame::update(float deltaTime) {

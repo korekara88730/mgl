@@ -10,13 +10,13 @@
 
 GameWorld::GameWorld() {
     
+    
+    
 }
 
 GameWorld::~GameWorld(){
     
-    
 }
-
 
 void GameWorld::update(float deltaTime) {
     
