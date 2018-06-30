@@ -23,8 +23,6 @@ ObjectManager* ObjectManager::getInstance() {
     return &instance;
 }
 
-
-
 GameObject* ObjectManager::createObject(){
     unsigned int objId = getNextIndex();
     GameObject* pObject = new GameObject(objId);
@@ -38,12 +36,21 @@ GameObject* ObjectManager::getObject(unsigned int id) {
 }
 
 void ObjectManager::removeObject(unsigned int id) {
-    
-    
+    for(auto iter = _objects.begin();iter != _objects.end();++iter){
+        if((*iter)->id() == id){
+            delete (*iter);
+            _objects.erase(iter);
+            break;
+        }
+    }
 }
 
 void ObjectManager::cleanAll() {
-    
+    for(auto iter = _objects.begin();iter != _objects.end();++iter){
+        delete (*iter);
+        _objects.erase(iter);
+    }
+    _objects.clear();
 }
 
 

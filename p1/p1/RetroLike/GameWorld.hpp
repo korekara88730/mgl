@@ -14,7 +14,6 @@ using namespace std;
 
 #include <stdio.h>
 #include "Drawable.hpp"
-#include "ObjectManager.hpp"
 
 class GameWorld {
     
@@ -30,7 +29,7 @@ public:
     
 private:
     vector<Drawable*> _allDrawable;
-    ObjectManager*  _objectManager = nullptr;
+
 };
 
 #endif /* GameWorld_hpp */

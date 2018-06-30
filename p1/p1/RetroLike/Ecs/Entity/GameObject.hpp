@@ -13,6 +13,7 @@
 #include <vector>
 #include "BaseComponent.hpp"
 #include <cassert>
+#include <functional>
 
 using namespace std;
 
@@ -41,8 +42,6 @@ public:
         }
     }
     
-    
-    
     template<typename CompCls>
     CompCls* getComponent(){
         for (auto comp : _components) {
@@ -53,10 +52,20 @@ public:
         return nullptr;
     }
     
+    template<typename CompCls>
+    bool hasComponent(){
+        for(auto comp:_components){
+            if(dynamic_cast<CompCls*>(comp) != nullptr){
+                return true;
+            }
+        }
+        return false;
+    }
     
 private:
     unsigned int _id = -1;
     
+    // 这里效率有问题，将来会改成 hash
     std::vector<BaseComponent*>   _components;
 };
 

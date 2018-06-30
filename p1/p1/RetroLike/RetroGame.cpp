@@ -8,7 +8,7 @@
 
 #include "RetroGame.hpp"
 #include "ModelComponent.hpp"
-
+#include "ObjectManager.hpp"
 
 RetroGame::RetroGame() {
     

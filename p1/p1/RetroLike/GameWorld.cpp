@@ -7,6 +7,8 @@
 //
 
 #include "GameWorld.hpp"
+#include "ObjectManager.hpp"
+#include "ModelComponent.hpp"
 
 GameWorld::GameWorld() {
     
@@ -24,6 +26,9 @@ void GameWorld::update(float deltaTime) {
 }
 
 void GameWorld::draw() {
-    
-    
+    ObjectManager::getInstance()->filterObjsDoFunc<ModelComponent>([](GameObject* obj){
+        
+        printf("%u\n",obj->id());
+        
+    });
 }
