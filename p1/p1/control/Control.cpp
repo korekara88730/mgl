@@ -5,11 +5,11 @@
 const bool bEnableMouse = true;
 
 Control::Control()
-:_position(glm::vec3( 0, 0, 5 ))
+:_position(glm::vec3( 0, 0, 500 ))
 ,_horizontalAngle(3.14f)
 ,_verticalAngle(0.0f)
 ,_initialFoV(45.0f)
-,_speed(3.0f)
+,_speed(30.0f)
 ,_mouseSpeed(0.005f)
 //,_mouseSpeed(0.0001f)
 {
@@ -74,7 +74,7 @@ void Control::computeMatricesFromInputs(GLFWwindow* pWindow,float deltaTime)
     
     // result
     float FoV = _initialFoV;
-    _projectionMatrix = glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 100.0f);
+    _projectionMatrix = glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 10000.0f);
     _viewMatrix = glm::lookAt(
         _position,           // Camera is here
         _position+direction, // and looks here : at the same position, plus "direction"

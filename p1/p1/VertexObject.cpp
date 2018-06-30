@@ -285,6 +285,6 @@ void VertexObject::prepareModel()
 //    loadObj("./obj");
 //    loadObj("./json/test.json");
 //    loadObj("./json/test2.json");
-    _model = loadObj("./model/box.obj.json");
-//    _model = loadObj("./model/pikachu.obj.json");
+//    _model = loadObj("./model/box.obj.json");
+    _model = loadObj("./model/pikachu.obj.json");
 }
