@@ -1,0 +1,6 @@
+﻿  RetroGame.cpp
+e:\coding\mgl\p1\p1\retrolike\objectmanager.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\coding\mgl\p1\p1\retrolike\ecs\entity\gameobject.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  p1.vcxproj -> E:\coding\mgl\vcproj\p1\Debug\p1.exe
+  p1.vcxproj -> E:\coding\mgl\vcproj\p1\Debug\p1.pdb (Partial PDB)

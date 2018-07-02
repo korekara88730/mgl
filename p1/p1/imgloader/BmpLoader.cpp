@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "BmpLoader.hpp"
 
 unsigned char The24BitBmp::getRAt(int x, int y)

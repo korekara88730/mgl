@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
-#include "BaseComponent.hpp"
+#include "../Component/BaseComponent.hpp"
 #include <cassert>
 #include <functional>
 

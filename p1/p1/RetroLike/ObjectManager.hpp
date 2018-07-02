@@ -10,7 +10,7 @@
 #define ObjectManager_hpp
 
 #include <stdio.h>
-#include "GameObject.hpp"
+#include "Ecs/Entity/GameObject.hpp"
 #include <vector>
 
 class ObjectManager {

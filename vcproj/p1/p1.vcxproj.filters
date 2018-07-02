@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\p1\p1\main.cpp" />
+    <ClCompile Include="..\..\p1\p1\VertexObject.cpp" />
+    <ClCompile Include="..\..\p1\p1\Winform.cpp" />
+    <ClCompile Include="..\..\p1\p1\Scene\TestCase1.cpp" />
+    <ClCompile Include="..\..\p1\p1\objloader\ObjLoader.cpp" />
+    <ClCompile Include="..\..\p1\p1\imgloader\BmpLoader.cpp" />
+    <ClCompile Include="..\..\p1\p1\control\Control.cpp" />
+    <ClCompile Include="..\..\p1\p1\common\Shader.cpp" />
+    <ClCompile Include="..\..\p1\p1\RetroLike\Cube.cpp">
+      <Filter>RetroLike</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Drawable.cpp">
+      <Filter>RetroLike</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\GameWorld.cpp">
+      <Filter>RetroLike</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\ObjectManager.cpp">
+      <Filter>RetroLike</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\RetroGame.cpp">
+      <Filter>RetroLike</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Component\ModelComponent.cpp">
+      <Filter>RetroLike\Ecs\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Component\BaseComponent.cpp">
+      <Filter>RetroLike\Ecs\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Entity\GameObject.cpp">
+      <Filter>RetroLike\Ecs\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\System\DrawModelSystem.cpp">
+      <Filter>RetroLike\Ecs\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\System\BaseSystem.cpp">
+      <Filter>RetroLike\Ecs\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Camera\Camera.cpp">
+      <Filter>RetroLike\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\p1\p1\VertexObject.hpp" />
+    <ClInclude Include="..\..\p1\p1\Winform.h" />
+    <ClInclude Include="..\..\p1\p1\Scene\TestCase1.hpp" />
+    <ClInclude Include="..\..\p1\p1\objloader\ObjLoader.hpp" />
+    <ClInclude Include="..\..\p1\p1\imgloader\BmpLoader.hpp" />
+    <ClInclude Include="..\..\p1\p1\control\Control.hpp" />
+    <ClInclude Include="..\..\p1\p1\common\Shader.hpp" />
+    <ClInclude Include="..\..\p1\p1\RetroLike\Cube.hpp">
+      <Filter>RetroLike</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Drawable.hpp">
+      <Filter>RetroLike</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\GameWorld.hpp">
+      <Filter>RetroLike</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\ObjectManager.hpp">
+      <Filter>RetroLike</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\RetroGame.hpp">
+      <Filter>RetroLike</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Component\BaseComponent.hpp">
+      <Filter>RetroLike\Ecs\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Component\ModelComponent.hpp">
+      <Filter>RetroLike\Ecs\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Entity\GameObject.hpp">
+      <Filter>RetroLike\Ecs\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\System\DrawModelSystem.hpp">
+      <Filter>RetroLike\Ecs\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\System\BaseSystem.hpp">
+      <Filter>RetroLike\Ecs\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Camera\Camera.hpp">
+      <Filter>RetroLike\Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="RetroLike">
+      <UniqueIdentifier>{34aa9591-75ae-4c27-b3be-592c5507af9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Ecs">
+      <UniqueIdentifier>{63408c57-e965-4718-9a02-98b5d4c4bf5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Ecs\Component">
+      <UniqueIdentifier>{a59853e2-0c02-4fcb-b0b5-4e7506e43c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Ecs\Entity">
+      <UniqueIdentifier>{b2ae45eb-8a13-4824-9e27-edddffb89a0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Ecs\System">
+      <UniqueIdentifier>{b65859e7-0780-4aa7-9b6b-60a009214da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Camera">
+      <UniqueIdentifier>{bace3788-280f-4e66-a3e2-c66fb3f2a5a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

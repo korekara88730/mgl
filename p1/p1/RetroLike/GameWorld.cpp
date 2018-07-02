@@ -8,7 +8,7 @@
 
 #include "GameWorld.hpp"
 #include "ObjectManager.hpp"
-#include "ModelComponent.hpp"
+#include "Ecs/Component/ModelComponent.hpp"
 
 GameWorld::GameWorld() {
     

@@ -7,7 +7,7 @@
 //
 
 #include "RetroGame.hpp"
-#include "ModelComponent.hpp"
+#include "Ecs/Component/ModelComponent.hpp"
 #include "ObjectManager.hpp"
 
 RetroGame::RetroGame() {
