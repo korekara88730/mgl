@@ -8,27 +8,30 @@
 
 #include "GameWorld.hpp"
 #include "ObjectManager.hpp"
-#include "Ecs/Component/ModelComponent.hpp"
+//#include "Ecs/Component/ModelComponent.hpp"
+#include "Ecs/System/DrawModelSystem.hpp"
+
 
 GameWorld::GameWorld() {
-    
-    
-    
+	registerSystem<DrawModelSystem>();
 }
 
 GameWorld::~GameWorld(){
-    
+	// remove all systems
+    for(auto sys:_allSys){
+		delete sys;
+	}
+	_allSys.clear();
 }
 
 void GameWorld::update(float deltaTime) {
-    
-    
+	for (auto sys : _allSys) {
+		sys->update(deltaTime);
+	}
 }
 
 void GameWorld::draw() {
-    ObjectManager::getInstance()->filterObjsDoFunc<ModelComponent>([](GameObject* obj){
-        
-        printf("%u\n",obj->id());
-        
-    });
+	for (auto sys : _allSys) {
+		sys->draw();
+	}
 }

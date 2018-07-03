@@ -26,7 +26,9 @@ private:
 public:
     static const int TRIANGLE_VERTEX_SIZE = 9;  // 3 for each vertice,3 vertex.
     GLfloat* _triangle_vertex_buffer_data;
-    
+	
+	GLuint	_vaoHandle;
+	GLuint	_vboVertexPos;
 };
 
 #endif /* ModelComponent_hpp */

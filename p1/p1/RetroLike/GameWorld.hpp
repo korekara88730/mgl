@@ -14,6 +14,8 @@ using namespace std;
 
 #include <stdio.h>
 #include "Drawable.hpp"
+#include "Ecs/System/BaseSystem.hpp"
+#include <vector>
 
 class GameWorld {
     
@@ -25,11 +27,17 @@ public:
     void update(float deltaTime);
     void draw();
     
-    
+private:
+	template<typename SystemCls>
+	void registerSystem() {
+		SystemCls* pSys = new SystemCls();
+		_allSys.push_back(pSys);
+	}
+
+	
     
 private:
-    vector<Drawable*> _allDrawable;
-
+	std::vector<BaseSystem*>	_allSys;
 };
 
 #endif /* GameWorld_hpp */

@@ -152,7 +152,7 @@ void VertexObject::prepareData()
     // pass data to VBO
     glBufferData(GL_ARRAY_BUFFER,sizeof(vertexPosData),vertexPosData,GL_STATIC_DRAW);
     // shader
-    _programID = LoadShaders("./shaders/SimpleVertexShader.vertexshader","./shaders/SimpleFragmentShader.fragmentshader");
+    _programID = p1sh::createShaderProgram("./shaders/SimpleVertexShader.vertexshader","./shaders/SimpleFragmentShader.fragmentshader");
     
     // gen UV vbo
     glGenBuffers(1,&_vboUV);

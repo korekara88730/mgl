@@ -10,6 +10,8 @@
 
 ModelComponent::ModelComponent()
 :_triangle_vertex_buffer_data(nullptr)
+,_vaoHandle(0)
+,_vboVertexPos(0)
 {
     
     

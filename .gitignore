@@ -1,2 +1,10 @@
 *.opendb
 *.obj
+*.idb
+*.pdb
+*.ilk
+*.pdb
+*.tlog
+*.suo
+*.VC.db
+vcproj/p1/.vs

@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+#include "common/Shader.hpp"
 
 Winform::Winform()
 :_viewportW(0)
@@ -92,6 +93,11 @@ void Winform::mainLoop()
 
 
 void Winform::prepareContent() {
+	// shader
+	p1sh::ShaderManager::getInstance()->initAllShaders();
+
+
+	// game
     _pGame = new RetroGame();
     _pGame->init();
     _pGame->startGame();

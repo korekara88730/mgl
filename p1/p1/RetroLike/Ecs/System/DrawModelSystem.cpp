@@ -7,6 +7,8 @@
 //
 
 #include "DrawModelSystem.hpp"
+#include "../../ObjectManager.hpp"
+#include "../Component/ModelComponent.hpp"
 
 DrawModelSystem::DrawModelSystem() {
     
@@ -22,6 +24,8 @@ void DrawModelSystem::update(float deltaTime) {
 }
 
 void DrawModelSystem::draw() {
-    
+	ObjectManager::getInstance()->eachFunc<ModelComponent>([](GameObject* pObject) {
+		
+	});
 }
 

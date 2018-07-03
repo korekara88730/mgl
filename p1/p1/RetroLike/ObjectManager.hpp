@@ -37,7 +37,7 @@ private:
 public:
     
     template<typename CompCls,typename ...Args>
-    void filterObjsDoFunc(std::function<void(GameObject* pObject)> func){
+    void eachFunc(std::function<void(GameObject* pObject)> func){
         for(auto obj:_objects){
             if(isFitCompCondition<CompCls,Args...>(obj)){
                 func(obj);

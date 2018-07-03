@@ -2,22 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\p1\p1\main.cpp" />
-    <ClCompile Include="..\..\p1\p1\VertexObject.cpp" />
     <ClCompile Include="..\..\p1\p1\Winform.cpp" />
-    <ClCompile Include="..\..\p1\p1\Scene\TestCase1.cpp" />
-    <ClCompile Include="..\..\p1\p1\objloader\ObjLoader.cpp" />
-    <ClCompile Include="..\..\p1\p1\imgloader\BmpLoader.cpp" />
-    <ClCompile Include="..\..\p1\p1\control\Control.cpp" />
-    <ClCompile Include="..\..\p1\p1\common\Shader.cpp" />
-    <ClCompile Include="..\..\p1\p1\RetroLike\Cube.cpp">
-      <Filter>RetroLike</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\p1\p1\RetroLike\Drawable.cpp">
-      <Filter>RetroLike</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\p1\p1\RetroLike\GameWorld.cpp">
-      <Filter>RetroLike</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\p1\p1\RetroLike\ObjectManager.cpp">
       <Filter>RetroLike</Filter>
     </ClCompile>
@@ -42,24 +27,36 @@
     <ClCompile Include="..\..\p1\p1\RetroLike\Camera\Camera.cpp">
       <Filter>RetroLike\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Cube.cpp">
+      <Filter>RetroLike\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Drawable.cpp">
+      <Filter>RetroLike\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\GameWorld.cpp">
+      <Filter>RetroLike\World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\objloader\ObjLoader.cpp">
+      <Filter>ResLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\common\Shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\control\Control.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\imgloader\BmpLoader.cpp">
+      <Filter>ResLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\Scene\TestCase1.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\p1\p1\VertexObject.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\p1\p1\VertexObject.hpp" />
     <ClInclude Include="..\..\p1\p1\Winform.h" />
-    <ClInclude Include="..\..\p1\p1\Scene\TestCase1.hpp" />
-    <ClInclude Include="..\..\p1\p1\objloader\ObjLoader.hpp" />
-    <ClInclude Include="..\..\p1\p1\imgloader\BmpLoader.hpp" />
-    <ClInclude Include="..\..\p1\p1\control\Control.hpp" />
-    <ClInclude Include="..\..\p1\p1\common\Shader.hpp" />
-    <ClInclude Include="..\..\p1\p1\RetroLike\Cube.hpp">
-      <Filter>RetroLike</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\p1\p1\RetroLike\Drawable.hpp">
-      <Filter>RetroLike</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\p1\p1\RetroLike\GameWorld.hpp">
-      <Filter>RetroLike</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\p1\p1\RetroLike\ObjectManager.hpp">
       <Filter>RetroLike</Filter>
     </ClInclude>
@@ -84,6 +81,33 @@
     <ClInclude Include="..\..\p1\p1\RetroLike\Camera\Camera.hpp">
       <Filter>RetroLike\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Drawable.hpp">
+      <Filter>RetroLike\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Cube.hpp">
+      <Filter>RetroLike\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\GameWorld.hpp">
+      <Filter>RetroLike\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\objloader\ObjLoader.hpp">
+      <Filter>ResLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\common\Shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\control\Control.hpp">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\imgloader\BmpLoader.hpp">
+      <Filter>ResLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\VertexObject.hpp">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\p1\p1\Scene\TestCase1.hpp">
+      <Filter>Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RetroLike">
@@ -103,6 +127,24 @@
     </Filter>
     <Filter Include="RetroLike\Camera">
       <UniqueIdentifier>{bace3788-280f-4e66-a3e2-c66fb3f2a5a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Drawable">
+      <UniqueIdentifier>{2bae8a15-1a1c-4866-adcf-d214287eb486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\World">
+      <UniqueIdentifier>{ef2c5139-de8f-4b75-a602-28899e85bc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResLoader">
+      <UniqueIdentifier>{6afa759e-8bd0-4bab-aea7-94952689b32f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control">
+      <UniqueIdentifier>{024982c2-925f-4635-94ee-7ad7659654e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{1438299d-d3d2-4d4b-9a73-3bff2ac03667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{32797829-6b01-4e29-b053-663bc41b8e32}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
