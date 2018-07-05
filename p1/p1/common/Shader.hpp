@@ -22,7 +22,14 @@ namespace p1sh {
 	
 		void initAllShaders();
 
-		GLuint getShaderHandle(ShaderType shaderType) const { return _shaderHash[shaderType]; }
+		GLuint getShaderHandle(ShaderType shaderType) const { 
+			auto iter = _shaderHash.find(shaderType);
+			if (iter == _shaderHash.end()) {
+				return 0;
+			}
+			iter->second;
+		}
+
 	private:
 		ShaderManager();
 

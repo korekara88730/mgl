@@ -43,4 +43,14 @@ void ModelComponent::initVertexDataBaseTriangle() {
     _triangle_vertex_buffer_data[index++] =  0.0f;
     _triangle_vertex_buffer_data[index++] =  1.0f;
     _triangle_vertex_buffer_data[index++] =  0.0f;
+
+	// vbo
+	int dataCnt = index;
+	glGenBuffers(1, &_vboVertexPos);
+	glBindBuffer(GL_ARRAY_BUFFER, _vboVertexPos);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * dataCnt, _triangle_vertex_buffer_data, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// vao
+	glGenVertexArrays(1, &_vaoHandle);
 }
