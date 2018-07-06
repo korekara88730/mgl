@@ -20,12 +20,13 @@ DrawModelSystem::~DrawModelSystem() {
 }
 
 void DrawModelSystem::update(float deltaTime) {
-    
+	//modelComp->update(deltaTime);
 }
 
 void DrawModelSystem::draw() {
 	ObjectManager::getInstance()->eachFunc<ModelComponent>([](GameObject* pObject) {
-		
+		ModelComponent* modelComp = pObject->getComponent<ModelComponent>();
+		modelComp->draw();
 	});
 }
 

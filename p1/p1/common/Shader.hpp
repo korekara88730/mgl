@@ -9,7 +9,7 @@ namespace p1sh {
 
 
 	enum ShaderType {
-
+		ST_Base,
 		ST_Common,
 
 	};
@@ -22,12 +22,12 @@ namespace p1sh {
 	
 		void initAllShaders();
 
-		GLuint getShaderHandle(ShaderType shaderType) const { 
+		GLuint ShaderManager::getShaderHandle(ShaderType shaderType) const {
 			auto iter = _shaderHash.find(shaderType);
 			if (iter == _shaderHash.end()) {
-				return 0;
+				return (GLuint)0;
 			}
-			iter->second;
+			return iter->second;
 		}
 
 	private:

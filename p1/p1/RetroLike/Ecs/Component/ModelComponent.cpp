@@ -7,14 +7,16 @@
 //
 
 #include "ModelComponent.hpp"
+#include "../../../common/Shader.hpp"
 
 ModelComponent::ModelComponent()
 :_triangle_vertex_buffer_data(nullptr)
 ,_vaoHandle(0)
 ,_vboVertexPos(0)
+, _shaderHandle(0)
 {
-    
-    
+	_shaderHandle = p1sh::ShaderManager::getInstance()->getShaderHandle(p1sh::ShaderType::ST_Base);
+	initVertexData();
 }
 
 ModelComponent::~ModelComponent() {
@@ -54,3 +56,15 @@ void ModelComponent::initVertexDataBaseTriangle() {
 	// vao
 	glGenVertexArrays(1, &_vaoHandle);
 }
+
+void ModelComponent::update(float deltaTime) {
+
+}
+
+void ModelComponent::draw() {
+
+	glm::mat4 modelMatrix = glm::mat4(1.0f);
+
+	glVertexAttribPointer()
+}
+

@@ -127,6 +127,9 @@ namespace p1sh {
 	}
 
 	void ShaderManager::initAllShaders() {
+		_shaderHash[ShaderType::ST_Base] = createShaderProgram("./shaders/BaseVS.vs", "./shaders/BaseFS.fs");
 		_shaderHash[ShaderType::ST_Common] = createShaderProgram("./shaders/SimpleVertexShader.vertexshader", "./shaders/SimpleFragmentShader.fragmentshader");
 	}
+
+
 }

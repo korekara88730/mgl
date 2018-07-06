@@ -18,7 +18,11 @@ public:
     ModelComponent();
     virtual ~ModelComponent();
     
-    
+
+public:
+	void update(float deltaTime);
+	void draw();
+
 private:
     void initVertexData();
     void initVertexDataBaseTriangle();
@@ -29,6 +33,10 @@ public:
 	
 	GLuint	_vaoHandle;
 	GLuint	_vboVertexPos;
+
+	GLuint	_shaderHandle;
+
+
 };
 
 #endif /* ModelComponent_hpp */
