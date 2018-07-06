@@ -34,10 +34,6 @@ void ModelComponent::initVertexData() {
 
 void ModelComponent::initVertexDataBaseTriangle() {
 
-	// vao
-	glGenVertexArrays(1, &_vaoHandle);
-	glBindVertexArray(_vaoHandle);
-	glBindVertexArray(0);
 
 	// vertex data
     _triangle_vertex_buffer_data = new GLfloat[TRIANGLE_VERTEX_SIZE];
@@ -60,6 +56,19 @@ void ModelComponent::initVertexDataBaseTriangle() {
 	glGenBuffers(1, &_vboVertexPos);
 	glBindBuffer(GL_ARRAY_BUFFER, _vboVertexPos);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * dataCnt, _triangle_vertex_buffer_data, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// vao
+	glGenVertexArrays(1, &_vaoHandle);
+
+
+	//// VBO DATA TO VAO
+	//glBindVertexArray(_vaoHandle);
+	//glBindBuffer(GL_ARRAY_BUFFER, _vboVertexPos);
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (void*)0);
+
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//glBindVertexArray(0);
 
 
 }
@@ -105,9 +114,8 @@ void ModelComponent::draw() {
 	glUseProgram(_shaderHandle);
 	glEnableVertexAttribArray(0);
 
+	// pass vbo data -> vao
 	glBindBuffer(GL_ARRAY_BUFFER, _vboVertexPos);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 9, _triangle_vertex_buffer_data, GL_STATIC_DRAW);
-
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (void*)0);
 	
 
