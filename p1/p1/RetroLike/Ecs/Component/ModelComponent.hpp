@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "BaseComponent.hpp"
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 
 class ModelComponent : public BaseComponent {
 public:
@@ -21,7 +22,7 @@ public:
 
 public:
 	void update(float deltaTime);
-	void draw();
+	void draw(glm::mat4& modelMatrix,glm::mat4& viewMatrix,glm::mat4 projectionMatrix);
 
 private:
     void initVertexData();

@@ -126,6 +126,7 @@
     <ClCompile Include="..\..\p1\p1\RetroLike\Drawable.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Component\BaseComponent.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Component\ModelComponent.cpp" />
+    <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Component\TransformComponent.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Entity\GameObject.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\System\BaseSystem.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\System\DrawModelSystem.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="..\..\p1\p1\RetroLike\Drawable.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Component\BaseComponent.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Component\ModelComponent.hpp" />
+    <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Component\TransformComponent.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Entity\GameObject.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\System\BaseSystem.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\System\DrawModelSystem.hpp" />

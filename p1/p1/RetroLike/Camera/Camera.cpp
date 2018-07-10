@@ -8,11 +8,25 @@
 
 #include "Camera.hpp"
 
-glm::mat4 getViewMatrix() {
-    
+Camera::Camera() {
+
+}
+
+Camera::~Camera() {
+	
+}
+
+
+glm::mat4 Camera::getViewMatrix() {
     glm::mat4 result;
-    
-    
     return result;
 }
 
+glm::mat4 Camera::getProjectionMatrix() {
+	glm::mat4 result;
+	return result;
+}
+
+void Camera::update(float dt) {
+
+}

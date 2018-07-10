@@ -77,7 +77,7 @@ void ModelComponent::update(float deltaTime) {
 
 }
 
-void ModelComponent::draw() {
+void ModelComponent::draw(glm::mat4& modelMatrix, glm::mat4& viewMatrix, glm::mat4 projectionMatrix) {
 
 
 	// mvp 参数

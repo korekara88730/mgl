@@ -9,9 +9,11 @@
 #include "GameObject.hpp"
 
 
+
 GameObject::GameObject(unsigned int id)
 :_id(id) {
-    
+	
+	addComponent<TransformComponent>();
     
 }
 

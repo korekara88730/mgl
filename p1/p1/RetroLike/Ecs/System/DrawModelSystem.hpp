@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "BaseSystem.hpp"
+#include "../Component/TransformComponent.hpp"
+#include "../Component/ModelComponent.hpp"
 
 class DrawModelSystem : public BaseSystem {
     
@@ -21,6 +23,9 @@ public:
 public:
     virtual void update(float deltaTime) override;
     virtual void draw() override;
+
+private:
+	void doDraw(TransformComponent* transComp,ModelComponent* modelComp);
     
 };
 

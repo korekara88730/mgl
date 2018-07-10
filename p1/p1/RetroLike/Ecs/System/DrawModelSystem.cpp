@@ -24,9 +24,17 @@ void DrawModelSystem::update(float deltaTime) {
 }
 
 void DrawModelSystem::draw() {
-	ObjectManager::getInstance()->eachFunc<ModelComponent>([](GameObject* pObject) {
-		ModelComponent* modelComp = pObject->getComponent<ModelComponent>();
-		modelComp->draw();
+	ObjectManager::getInstance()->eachFunc<TransformComponent,ModelComponent>([&](GameObject* pObject) {
+		doDraw(pObject->getComponent<TransformComponent>(), pObject->getComponent<ModelComponent>());
 	});
 }
 
+void DrawModelSystem::doDraw(TransformComponent* transComp,ModelComponent* modelComp) {
+
+	// @miao @todo
+	// get from camera
+	glm::mat4 viewMatrix;
+	glm::mat4 projectionMatrix;
+
+	modelComp->draw(transComp->getModelMatrix(),viewMatrix,projectionMatrix);
+}

@@ -16,8 +16,20 @@
 
 class Camera {
     
-private:
+public:
+
+	Camera();
+	~Camera();
+
     glm::mat4 getViewMatrix();
+	glm::mat4 getProjectionMatrix();
+
+
+	void update(float dt);
+
+private:
+	glm::vec3	_pos;
+	glm::vec3	_dir;
 };
 
 #endif /* Camera_hpp */

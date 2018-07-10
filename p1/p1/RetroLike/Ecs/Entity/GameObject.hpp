@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include "../Component/BaseComponent.hpp"
+#include "../Component/TransformComponent.hpp"
 #include <cassert>
 #include <functional>
 
