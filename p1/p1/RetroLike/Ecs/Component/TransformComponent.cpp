@@ -6,10 +6,28 @@ TransformComponent::TransformComponent() {
 	_scale.x = _scale.y = _scale.z = 1;
 	_rotation.x  = _rotation.y, _rotation.z = 0;
 
-	//_modelMatrix;
+	computeMatrix();
+}
+
+void TransformComponent::computeMatrix() {
+
+	// transform matrix
+	_transformMatrix[0].w = _pos.x;
+	_transformMatrix[1].w = _pos.y;
+	_transformMatrix[2].w = _pos.z;
+	_transformMatrix[3].w = 1;
+
+	// scale matrix
+	_scaleMatrix[0].x = _scale.x;
+	_scaleMatrix[1].y = _scale.y;
+	_scaleMatrix[2].z = _scale.z;
+	_scaleMatrix[3].w = 1;
+
+	// rotation matrix
+	// @miao @todo
 
 
-	printf("123213");
+	_modelMatrix = _rotationMatrix * _scaleMatrix * _transformMatrix;
 }
 
 TransformComponent::~TransformComponent() {
@@ -29,21 +47,6 @@ glm::vec3& TransformComponent::getRotation() {
 }
 
 glm::mat4& TransformComponent::getModelMatrix() {
-	
-	// 平移
-	_modelMatrix[0].w = _pos.x;
-	_modelMatrix[1].w = _pos.y;
-	_modelMatrix[2].w = _pos.z;
-
-
-	// 缩放
-	_modelMatrix[0].x = _scale.x;
-	_modelMatrix[1].y = _scale.y;
-	_modelMatrix[2].z = _scale.z;
-
-	// 旋转
-	// @miao 
-	// 临时不考虑旋转 。。。 @todo
-
+	computeMatrix();
 	return _modelMatrix;
 }
