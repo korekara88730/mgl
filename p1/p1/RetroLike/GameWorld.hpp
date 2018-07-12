@@ -16,6 +16,7 @@ using namespace std;
 #include "Drawable.hpp"
 #include "Ecs/System/BaseSystem.hpp"
 #include <vector>
+#include "Camera/Camera.hpp"
 
 class GameWorld {
     
@@ -27,6 +28,8 @@ public:
     void update(float deltaTime);
     void draw();
     
+	Camera*	getCamera() {return _pMainCamera;}
+
 private:
 	template<typename SystemCls>
 	void registerSystem() {
@@ -34,10 +37,9 @@ private:
 		_allSys.push_back(pSys);
 	}
 
-	
-    
 private:
 	std::vector<BaseSystem*>	_allSys;
+	Camera*	_pMainCamera = nullptr;
 };
 
 #endif /* GameWorld_hpp */

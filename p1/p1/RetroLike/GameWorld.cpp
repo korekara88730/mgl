@@ -14,6 +14,8 @@
 
 GameWorld::GameWorld() {
 	registerSystem<DrawModelSystem>();
+
+	_pMainCamera = new Camera();
 }
 
 GameWorld::~GameWorld(){
@@ -22,6 +24,12 @@ GameWorld::~GameWorld(){
 		delete sys;
 	}
 	_allSys.clear();
+
+	// remove camera
+	if (_pMainCamera != nullptr) {
+		delete _pMainCamera;
+		_pMainCamera = nullptr;
+	}
 }
 
 void GameWorld::update(float deltaTime) {
