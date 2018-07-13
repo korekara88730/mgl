@@ -53,3 +53,12 @@ glm::mat4& TransformComponent::getModelMatrix() {
 	computeMatrix();
 	return _modelMatrix;
 }
+
+glm::vec3 TransformComponent::getDirection() {
+	glm::vec3 dir;
+	// @miao @todo
+
+
+	return dir;
+}
+

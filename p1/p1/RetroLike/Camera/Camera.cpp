@@ -9,14 +9,31 @@
 #include "Camera.hpp"
 
 Camera::Camera() {
-	//_pos.x = _pos.y = _pos.z = 0;
-	_pos.x = 4.0f;
-	_pos.y = 3.0f;
-	_pos.z = 3.0f;
+	_pos.x = _pos.y = _pos.z = 0;
 
-	_dir.x = 0.0f;
-	_dir.y = 0.0f;
-	_dir.z = 0.0f;
+	// @miao @test
+	//_pos.x = 4;
+	//_pos.y = 4;
+	//_pos.z = -1;
+
+
+	//_dir.x = 0.0f;
+	//_dir.y = 0.0f;
+	//_dir.z = 1.0f;
+
+	//_lookTarget.x = 0.0f;
+	//_lookTarget.y = 0.0f;
+	//_lookTarget.z = 1.0f;
+	//
+	//_forward = _lookTarget - _pos;
+	
+	_forward.x = 0;
+	_forward.y = 0;
+	_forward.z = 1;
+
+	_lookTarget = _pos + _forward;
+
+
 
 	_up.x = 0;
 	_up.y = 1;
@@ -30,7 +47,7 @@ Camera::~Camera() {
 
 glm::mat4 Camera::getViewMatrix() {
     glm::mat4 result;
-	result = glm::lookAt(_pos,_dir,_up );
+	result = glm::lookAt(_pos, _lookTarget,_up );
     return result;
 }
 

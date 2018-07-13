@@ -14,6 +14,9 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
+#include "../Ecs/Entity/GameObject.hpp"
+#include "../Ecs/Component/TransformComponent.hpp"
+
 class Camera {
     
 public:
@@ -29,24 +32,31 @@ public:
 
 private:
 	glm::vec3	_pos;
-	glm::vec3	_dir;
-	glm::vec3	_up;
+	//glm::vec3	_dir;
 
 	/*
-	
-		GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> perspective
-	(
-		T fovy,
-		T aspect,
-		T zNear,
-		T zFar
-	)
+		定义 forward 表示相机朝向
+		_lookTarget 用 forward 计算出来
+		
+		好像这样更容易做到  通过键盘鼠标，控制相机
+
+		相机看其他地方，做旋转时，只需要 修改 forward 向量，然后联动 looktarget 做修改 ，这样可能比较简单
+		先试试
 	*/
+	glm::vec3	_lookTarget;
+	glm::vec3 _forward;
+
+
+	glm::vec3	_up;
+
 	float _fovy = 45;
 	float _aspect = 1.3f;
 	float _zNear = 0.1f;
 	float _zFar = 100.0f;
-	
+
+
+private:
+	//GameObject		_transformObject;
 };
 
 #endif /* Camera_hpp */

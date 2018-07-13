@@ -24,7 +24,7 @@ RetroGame::~RetroGame() {
 
 void RetroGame::init() {
     initWorlds();
-    
+	initInput();
 }
 
 void RetroGame::initWorlds() {
@@ -34,12 +34,34 @@ void RetroGame::initWorlds() {
     }
 }
 
+void RetroGame::initInput() {
+	_pInputManager = InputManager::getInstance();
+}
+
 void RetroGame::startGame() {
     // test objects
-    auto obj1 = ObjectManager::getInstance()->createObject();
-    obj1->addComponent<ModelComponent>();
-	auto transComp = obj1->getComponent<TransformComponent>();
-	transComp->setPos(0, 0, 0);
+	{
+		auto obj1 = ObjectManager::getInstance()->createObject();
+		obj1->addComponent<ModelComponent>();
+		auto transComp = obj1->getComponent<TransformComponent>();
+		transComp->setPos(0, 0, 1);
+	}
+    
+	{
+		auto obj2 = ObjectManager::getInstance()->createObject();
+		obj2->addComponent<ModelComponent>();
+		auto transComp = obj2->getComponent<TransformComponent>();
+		transComp->setPos(0, 1, 1);
+	}
+	
+
+	// camera
+	if (_pGameWorld != nullptr) {
+		auto camera = _pGameWorld->getCamera();
+		if (camera != nullptr) {
+			
+		}
+	}
 }
 
 void RetroGame::update(float deltaTime) {

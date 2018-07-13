@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "GameWorld.hpp"
+#include "Input/InputManager.h"
 
 class RetroGame {
     
@@ -30,10 +31,11 @@ public:
     
 private:
     void initWorlds();
-    
+	void initInput();
     
 private:
-    GameWorld*  _pGameWorld = nullptr;
+    GameWorld*		_pGameWorld = nullptr;
+	InputManager*	_pInputManager = nullptr;
 };
 
 #endif /* RetroGame_hpp */
