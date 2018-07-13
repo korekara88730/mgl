@@ -33,7 +33,7 @@ public:
 private:
 	template<typename SystemCls>
 	void registerSystem() {
-		SystemCls* pSys = new SystemCls();
+		SystemCls* pSys = new SystemCls(this);
 		_allSys.push_back(pSys);
 	}
 

@@ -17,7 +17,7 @@
 class DrawModelSystem : public BaseSystem {
     
 public:
-    DrawModelSystem();
+	DrawModelSystem(GameWorld* pWorld);
     virtual ~DrawModelSystem();
     
 public:

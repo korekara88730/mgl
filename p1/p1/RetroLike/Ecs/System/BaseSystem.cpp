@@ -8,7 +8,9 @@
 
 #include "BaseSystem.hpp"
 
-BaseSystem::BaseSystem() {
+BaseSystem::BaseSystem(GameWorld* pWorld)
+:_pWorld(pWorld)
+{
     
     
 }

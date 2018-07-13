@@ -30,6 +30,23 @@ public:
 private:
 	glm::vec3	_pos;
 	glm::vec3	_dir;
+	glm::vec3	_up;
+
+	/*
+	
+		GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> perspective
+	(
+		T fovy,
+		T aspect,
+		T zNear,
+		T zFar
+	)
+	*/
+	float _fovy = 45;
+	float _aspect = 1.3f;
+	float _zNear = 0.1f;
+	float _zFar = 100.0f;
+	
 };
 
 #endif /* Camera_hpp */

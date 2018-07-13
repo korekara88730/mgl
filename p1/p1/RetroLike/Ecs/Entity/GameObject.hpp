@@ -27,10 +27,11 @@ public:
     unsigned int id() const { return _id; }
     
     template<typename CompCls>
-    void addComponent(){
+    CompCls* addComponent(){
         assert(getComponent<CompCls>() == nullptr);
         CompCls* comp = new CompCls();
         _components.push_back(comp);
+		return comp;
     }
     
     template<typename CompCls>

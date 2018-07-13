@@ -10,8 +10,8 @@ namespace p1sh {
 
 	enum ShaderType {
 		ST_Base,
+		ST_MVP,
 		ST_Common,
-
 	};
 
 

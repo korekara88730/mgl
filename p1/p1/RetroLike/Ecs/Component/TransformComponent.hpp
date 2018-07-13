@@ -18,6 +18,9 @@ public:
 	glm::mat4& getModelMatrix();
 
 
+	void setPos(float x, float y ,float z) { _pos.x = x; _pos.y = y; _pos.z = z; }
+	void setScale(float sx, float sy, float sz) { _scale.x = sx; _scale.y = sy; _scale.z = sz; }
+
 private:
 	
 	void computeMatrix();

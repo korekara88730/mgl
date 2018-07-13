@@ -9,10 +9,10 @@
 #include "DrawModelSystem.hpp"
 #include "../../ObjectManager.hpp"
 #include "../Component/ModelComponent.hpp"
+#include "../../GameWorld.hpp"
 
-DrawModelSystem::DrawModelSystem() {
-    
-    
+DrawModelSystem::DrawModelSystem(GameWorld* pWorld):BaseSystem(pWorld) {
+
 }
 
 DrawModelSystem::~DrawModelSystem() {
@@ -30,11 +30,7 @@ void DrawModelSystem::draw() {
 }
 
 void DrawModelSystem::doDraw(TransformComponent* transComp,ModelComponent* modelComp) {
-
-	// @miao @todo
-	// get from camera
-	glm::mat4 viewMatrix;
-	glm::mat4 projectionMatrix;
-
+	glm::mat4 viewMatrix = getWorld()->getCamera()->getViewMatrix();
+	glm::mat4 projectionMatrix = getWorld()->getCamera()->getProjectionMatrix();
 	modelComp->draw(transComp->getModelMatrix(),viewMatrix,projectionMatrix);
 }

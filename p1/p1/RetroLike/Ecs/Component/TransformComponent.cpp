@@ -1,5 +1,6 @@
 
 #include "TransformComponent.hpp"
+#include <glm/ext.hpp>
 
 TransformComponent::TransformComponent() {
 	_pos.x = 0,0,0;
@@ -12,16 +13,18 @@ TransformComponent::TransformComponent() {
 void TransformComponent::computeMatrix() {
 
 	// transform matrix
-	_transformMatrix[0].w = _pos.x;
-	_transformMatrix[1].w = _pos.y;
-	_transformMatrix[2].w = _pos.z;
-	_transformMatrix[3].w = 1;
+	//_transformMatrix[0].w = _pos.x;
+	//_transformMatrix[1].w = _pos.y;
+	//_transformMatrix[2].w = _pos.z;
+	//_transformMatrix[3].w = 1;
+	_transformMatrix = glm::translate(glm::mat4(), glm::vec3(_pos.x, _pos.y, _pos.z));
 
 	// scale matrix
-	_scaleMatrix[0].x = _scale.x;
-	_scaleMatrix[1].y = _scale.y;
-	_scaleMatrix[2].z = _scale.z;
-	_scaleMatrix[3].w = 1;
+	//_scaleMatrix[0].x = _scale.x;
+	//_scaleMatrix[1].y = _scale.y;
+	//_scaleMatrix[2].z = _scale.z;
+	//_scaleMatrix[3].w = 1;
+	_scaleMatrix = glm::scale(glm::mat4(), glm::vec3(_scale.x, _scale.y, _scale.z));
 
 	// rotation matrix
 	// @miao @todo

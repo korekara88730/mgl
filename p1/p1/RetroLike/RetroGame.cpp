@@ -38,6 +38,8 @@ void RetroGame::startGame() {
     // test objects
     auto obj1 = ObjectManager::getInstance()->createObject();
     obj1->addComponent<ModelComponent>();
+	auto transComp = obj1->getComponent<TransformComponent>();
+	transComp->setPos(0, 0, 0);
 }
 
 void RetroGame::update(float deltaTime) {

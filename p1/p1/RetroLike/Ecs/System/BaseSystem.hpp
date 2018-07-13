@@ -11,17 +11,24 @@
 
 #include <stdio.h>
 
+class GameWorld;
 class BaseSystem {
 public:
     
-    BaseSystem();
+    BaseSystem(GameWorld* pWorld);
     virtual ~BaseSystem();
     
 public:
     
     virtual void update(float deltaTime) = 0;
     virtual void draw() = 0;
-    
+
+
+public:
+	GameWorld* getWorld() { return _pWorld; }
+
+private:
+	GameWorld*	_pWorld = nullptr;
 };
 
 #endif /* BaseSystem_hpp */
