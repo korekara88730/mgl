@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6232DF20F9DBD000E96761 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F6232DD20F9DBD000E96761 /* TransformComponent.cpp */; };
+		0F6232E320F9DC7800E96761 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F6232E220F9DC6100E96761 /* InputManager.cpp */; };
 		0F84180A20E729570045B876 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84180820E729570045B876 /* Cube.cpp */; };
 		0F84180D20E729840045B876 /* Drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84180B20E729840045B876 /* Drawable.cpp */; };
 		0F84181520E734FA0045B876 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84181320E734FA0045B876 /* Camera.cpp */; };
@@ -48,6 +50,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F6232DD20F9DBD000E96761 /* TransformComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformComponent.cpp; sourceTree = "<group>"; };
+		0F6232DE20F9DBD000E96761 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
+		0F6232E120F9DC6100E96761 /* InputManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
+		0F6232E220F9DC6100E96761 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
 		0F84180820E729570045B876 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Cube.cpp; path = p1/RetroLike/Cube.cpp; sourceTree = SOURCE_ROOT; };
 		0F84180920E729570045B876 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Cube.hpp; path = p1/RetroLike/Cube.hpp; sourceTree = SOURCE_ROOT; };
 		0F84180B20E729840045B876 /* Drawable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Drawable.cpp; path = p1/RetroLike/Drawable.cpp; sourceTree = SOURCE_ROOT; };
@@ -116,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F6232E020F9DC6100E96761 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				0F6232E120F9DC6100E96761 /* InputManager.h */,
+				0F6232E220F9DC6100E96761 /* InputManager.cpp */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		0F84180720E729340045B876 /* Draw */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +168,8 @@
 				0F84181D20E76B760045B876 /* ModelComponent.hpp */,
 				0F84181F20E76B870045B876 /* BaseComponent.cpp */,
 				0F84182020E76B870045B876 /* BaseComponent.hpp */,
+				0F6232DD20F9DBD000E96761 /* TransformComponent.cpp */,
+				0F6232DE20F9DBD000E96761 /* TransformComponent.hpp */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -189,6 +206,7 @@
 		0FC5764A20E72005008BB65C /* RetroLike */ = {
 			isa = PBXGroup;
 			children = (
+				0F6232E020F9DC6100E96761 /* Input */,
 				0F84181220E734E80045B876 /* Camera */,
 				0F84180E20E72C0D0045B876 /* Ecs */,
 				0F84180720E729340045B876 /* Draw */,
@@ -376,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F6232E320F9DC7800E96761 /* InputManager.cpp in Sources */,
 				0FC5764D20E7205B008BB65C /* RetroGame.cpp in Sources */,
 				0FCC7473203F0629004F8870 /* cJSON.c in Sources */,
 				0F84181820E76B240045B876 /* ObjectManager.cpp in Sources */,
@@ -398,6 +417,7 @@
 				0FC5765320E72175008BB65C /* GameWorld.cpp in Sources */,
 				0FCA2B7020E78BFA00E1C904 /* DrawModelSystem.cpp in Sources */,
 				688208C51FF64937001FC4FC /* main.cpp in Sources */,
+				0F6232DF20F9DBD000E96761 /* TransformComponent.cpp in Sources */,
 				0F84180D20E729840045B876 /* Drawable.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
