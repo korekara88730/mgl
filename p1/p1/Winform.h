@@ -8,6 +8,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "RetroLike/RetroGame.hpp"
+#include "RetroLike/Input/InputManager.h"
 
 class Winform{
 public:
@@ -20,6 +21,8 @@ public:
 private:
     void prepareContent();
     void cleanContent();
+    
+    void initInput();
 private:
     GLFWwindow* _pWindow;
     int _viewportW,_viewportH;

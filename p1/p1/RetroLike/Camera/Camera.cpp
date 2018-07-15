@@ -8,7 +8,8 @@
 
 #include "Camera.hpp"
 
-Camera::Camera() {
+Camera::Camera()
+{
 	_pos.x = _pos.y = _pos.z = 0;
 
 	// @miao @test
@@ -59,4 +60,28 @@ glm::mat4 Camera::getProjectionMatrix() {
 
 void Camera::update(float dt) {
 
+}
+
+
+// GameCamera
+
+void GameCamera::onKeyPress(int key) {
+    _keyPressState[key] = true;
+}
+
+void GameCamera::onKeyRelease(int key) {
+    _keyPressState[key] = false;
+}
+
+/*
+ 前 GLFW_KEY_W
+ 后 GLFW_KEY_S
+ 向左转 GLFW_KEY_A
+ 向右转 GLFW_KEY_D
+ 左平移 GLFW_KEY_Q
+ 右平移 GLFW_KEY_E
+ */
+void GameCamera::update(float dt) {
+    
+    
 }

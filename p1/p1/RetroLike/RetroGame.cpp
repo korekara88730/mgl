@@ -35,7 +35,7 @@ void RetroGame::initWorlds() {
 }
 
 void RetroGame::initInput() {
-	_pInputManager = InputManager::getInstance();
+
 }
 
 void RetroGame::startGame() {

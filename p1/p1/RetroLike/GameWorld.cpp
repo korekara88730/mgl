@@ -15,7 +15,7 @@
 GameWorld::GameWorld() {
 	registerSystem<DrawModelSystem>();
 
-	_pMainCamera = new Camera();
+	_pMainCamera = new GameCamera();
 }
 
 GameWorld::~GameWorld(){

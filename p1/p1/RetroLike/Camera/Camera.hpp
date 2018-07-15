@@ -16,6 +16,9 @@
 
 #include "../Ecs/Entity/GameObject.hpp"
 #include "../Ecs/Component/TransformComponent.hpp"
+#include "../Input/InputManager.h"
+
+#include <map>
 
 class Camera {
     
@@ -28,7 +31,8 @@ public:
 	glm::mat4 getProjectionMatrix();
 
 
-	void update(float dt);
+	virtual void update(float dt);
+    
 
 private:
 	glm::vec3	_pos;
@@ -57,6 +61,19 @@ private:
 
 private:
 	//GameObject		_transformObject;
+};
+
+
+class GameCamera : public Camera ,public IKeyboardInputListener {
+
+public:
+    virtual void onKeyPress(int key) override;
+    virtual void onKeyRelease(int key) override;
+    
+    virtual void update(float dt) override;
+    
+private:
+    std::map<int,bool>  _keyPressState;
 };
 
 #endif /* Camera_hpp */

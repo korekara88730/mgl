@@ -54,6 +54,10 @@ bool Winform::setup(int width,int height,std::string winName)
     return true;
 }
 
+void Winform::initInput() {
+    InputManager::getInstance()->init(_pWindow);
+}
+
 void Winform::cleanup()
 {
     cleanContent();
@@ -90,13 +94,9 @@ void Winform::mainLoop()
     }
 }
 
-
-
 void Winform::prepareContent() {
 	// shader
 	p1sh::ShaderManager::getInstance()->initAllShaders();
-
-
 	// game
     _pGame = new RetroGame();
     _pGame->init();
