@@ -25,7 +25,7 @@ class Camera {
 public:
 
 	Camera();
-	~Camera();
+	virtual ~Camera();
 
     glm::mat4 getViewMatrix();
 	glm::mat4 getProjectionMatrix();
@@ -33,8 +33,11 @@ public:
 
 	virtual void update(float dt);
     
-
-private:
+protected:
+    void changeDirection(const glm::vec3& forward);
+    void changePosition(const glm::vec3& pos);
+    
+protected:
 	glm::vec3	_pos;
 	//glm::vec3	_dir;
 
@@ -67,13 +70,33 @@ private:
 class GameCamera : public Camera ,public IKeyboardInputListener {
 
 public:
+    GameCamera();
+    virtual ~GameCamera();
+    
+public:
     virtual void onKeyPress(int key) override;
     virtual void onKeyRelease(int key) override;
     
     virtual void update(float dt) override;
     
 private:
+    bool isKeyPressing(int key);
+    
+    void moveForward(float dt);
+    void moveBack(float dt);
+    void moveLeft(float dt);
+    void moveRight(float dt);
+    
+    void turnUp(float dt);
+    void turnDown(float dt);
+    void turnLeft(float dt);
+    void turnRight(float dt);
+    
+private:
     std::map<int,bool>  _keyPressState;
+    
+    float   _moveSpeed = 2;     //  x dis unit / second
+    float   _turnSpeed = 3;    //  x angle/second
 };
 
 #endif /* Camera_hpp */

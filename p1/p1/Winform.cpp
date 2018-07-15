@@ -101,6 +101,8 @@ void Winform::prepareContent() {
     _pGame = new RetroGame();
     _pGame->init();
     _pGame->startGame();
+    // input
+    InputManager::getInstance()->init(_pWindow);
 }
 
 void Winform::cleanContent() {

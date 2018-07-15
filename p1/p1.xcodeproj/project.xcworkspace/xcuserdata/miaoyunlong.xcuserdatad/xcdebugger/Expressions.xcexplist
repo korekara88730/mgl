@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "VertexObject::doDraw(int, int, glm::tmat4x4&lt;float, (glm::precision)0&gt;&amp;, glm::tmat4x4&lt;float, (glm::precision)0&gt;&amp;):VertexObject.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_pModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "loadBmp(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, The24BitBmp&amp;):BmpLoader.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "GameCamera::moveLeft(float):Camera.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_forward">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "VertexObject::prepareData():VertexObject.cpp">
          <PersistentStrings>
             <PersistentString
@@ -14,10 +33,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "VertexObject::VertexObject():VertexObject.cpp">
+         contextName = "loadJPG(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, The24BitBmp&amp;):BmpLoader.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "bitmap.dataOffset">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "loadBmp(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, The24BitBmp&amp;):BmpLoader.cpp">
+         contextName = "VertexObject::VertexObject():VertexObject.cpp">
       </ContextState>
       <ContextState
          contextName = "ObjModel::initWithJson(cJSON*):ObjLoader.cpp">
@@ -30,22 +54,6 @@
             </PersistentString>
             <PersistentString
                value = "sizeof(_verticePosData)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "VertexObject::doDraw(int, int, glm::tmat4x4&lt;float, (glm::precision)0&gt;&amp;, glm::tmat4x4&lt;float, (glm::precision)0&gt;&amp;):VertexObject.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "_pModel">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "loadJPG(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, The24BitBmp&amp;):BmpLoader.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "bitmap.dataOffset">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

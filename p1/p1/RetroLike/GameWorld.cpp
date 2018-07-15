@@ -33,9 +33,17 @@ GameWorld::~GameWorld(){
 }
 
 void GameWorld::update(float deltaTime) {
+    // update all system
 	for (auto sys : _allSys) {
 		sys->update(deltaTime);
 	}
+    
+    // @miao @temp
+    //  临时只更新 camera 考虑放到一个新的 system 里面
+    if(_pMainCamera) {
+        _pMainCamera->update(deltaTime);
+    }
+    
 }
 
 void GameWorld::draw() {

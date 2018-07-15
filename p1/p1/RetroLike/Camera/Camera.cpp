@@ -62,8 +62,24 @@ void Camera::update(float dt) {
 
 }
 
+void Camera::changeDirection(const glm::vec3& forward){
+    _forward = glm::normalize(forward);
+    _lookTarget = _pos + _forward;
+}
+
+void Camera::changePosition(const glm::vec3& pos) {
+    _pos = pos;
+    _lookTarget = _pos + _forward;
+}
 
 // GameCamera
+GameCamera::GameCamera() {
+    InputManager::getInstance()->registerKeyboardListener(this);
+}
+
+GameCamera::~GameCamera() {
+    InputManager::getInstance()->unregisterKeyboardListener(this);
+}
 
 void GameCamera::onKeyPress(int key) {
     _keyPressState[key] = true;
@@ -71,6 +87,14 @@ void GameCamera::onKeyPress(int key) {
 
 void GameCamera::onKeyRelease(int key) {
     _keyPressState[key] = false;
+}
+
+bool GameCamera::isKeyPressing(int key){
+    auto iter = _keyPressState.find(key);
+    if(iter == _keyPressState.end()){
+        return false;
+    }
+    return iter->second;
 }
 
 /*
@@ -82,6 +106,91 @@ void GameCamera::onKeyRelease(int key) {
  右平移 GLFW_KEY_E
  */
 void GameCamera::update(float dt) {
-    
+    if(isKeyPressing(GLFW_KEY_W)) {
+        moveForward(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_S)) {
+        moveBack(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_A)) {
+        moveLeft(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_D)) {
+        moveRight(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_UP)) {
+        turnUp(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_DOWN)) {
+        turnDown(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_LEFT)) {
+        turnLeft(dt);
+    }
+    if(isKeyPressing(GLFW_KEY_RIGHT)) {
+        turnRight(dt);
+    }
     
 }
+
+void GameCamera::moveForward(float dt) {
+    float offset = _moveSpeed * dt;
+    glm::vec3 newPos = _pos + _forward * offset;
+    changePosition(newPos);
+}
+
+void GameCamera::moveBack(float dt) {
+    float offset = -_moveSpeed * dt;
+    glm::vec3 newPos = _pos + _forward * offset;
+    changePosition(newPos);
+}
+
+void GameCamera::moveLeft(float dt) {
+    glm::vec3 toward = glm::cross(_forward,_up);
+    float offset = -_moveSpeed * dt;
+    glm::vec3 newPos = _pos + toward * offset;
+    changePosition(newPos);
+}
+
+void GameCamera::moveRight(float dt) {
+    glm::vec3 toward = glm::cross(_forward,_up) * -1;
+    float offset = -_moveSpeed * dt;
+    glm::vec3 newPos = _pos + toward * offset;
+    changePosition(newPos);
+}
+
+
+void GameCamera::turnUp(float dt) {
+    glm::vec3 rightAxis = glm::cross(_forward,_up);
+    float deltaAngle = _turnSpeed * dt;
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(),deltaAngle,rightAxis);
+    glm::vec4 tmpForward = glm::vec4(_forward.x,_forward.y,_forward.z,1);
+    glm::vec4 newForward = rotationMatrix * tmpForward;
+    changeDirection(glm::vec3(newForward.x,newForward.y,newForward.z));
+}
+
+void GameCamera::turnDown(float dt) {
+    glm::vec3 rightAxis = -1 * glm::cross(_forward,_up);
+    float deltaAngle = _turnSpeed * dt;
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(),deltaAngle,rightAxis);
+    glm::vec4 tmpForward = glm::vec4(_forward.x,_forward.y,_forward.z,1);
+    glm::vec4 newForward = rotationMatrix * tmpForward;
+    changeDirection(glm::vec3(newForward.x,newForward.y,newForward.z));
+}
+
+void GameCamera::turnLeft(float dt) {
+    float deltaAngle = _turnSpeed * dt;
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(),deltaAngle,glm::vec3(0,1,0));
+    glm::vec4 tmpForward = glm::vec4(_forward.x,_forward.y,_forward.z,1);
+    glm::vec4 newForward = rotationMatrix * tmpForward;
+    changeDirection(glm::vec3(newForward.x,newForward.y,newForward.z));
+}
+
+void GameCamera::turnRight(float dt) {
+    float deltaAngle = _turnSpeed * dt * -1;
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(),deltaAngle,glm::vec3(0,1,0));
+    glm::vec4 tmpForward = glm::vec4(_forward.x,_forward.y,_forward.z,1);
+    glm::vec4 newForward = rotationMatrix * tmpForward;
+    changeDirection(glm::vec3(newForward.x,newForward.y,newForward.z));
+}
+
