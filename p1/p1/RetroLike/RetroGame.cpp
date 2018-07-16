@@ -42,16 +42,18 @@ void RetroGame::startGame() {
     // test objects
 	{
 		auto obj1 = ObjectManager::getInstance()->createObject();
-		obj1->addComponent<ModelComponent>();
+		auto modelComp = obj1->addComponent<ModelComponent>();
+		modelComp->init(ModelComponent::EModelType::MT_Triangle);
 		auto transComp = obj1->getComponent<TransformComponent>();
-		transComp->setPos(0, 0, 1);
+		transComp->setPos(0, 1, 1);
 	}
     
 	{
 		auto obj2 = ObjectManager::getInstance()->createObject();
-		obj2->addComponent<ModelComponent>();
+		auto modelComp = obj2->addComponent<ModelComponent>();
+		modelComp->init(ModelComponent::EModelType::MT_Rectangle);
 		auto transComp = obj2->getComponent<TransformComponent>();
-		transComp->setPos(0, 1, 1);
+		transComp->setPos(0, 0, 2);
 	}
 	
 

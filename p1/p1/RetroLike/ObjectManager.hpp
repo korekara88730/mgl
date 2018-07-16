@@ -24,12 +24,7 @@ public:
     void removeObject(unsigned int id);
     
     void cleanAll();
-    
-    
-    
-    
 
-    
 private:
     ObjectManager();
     
