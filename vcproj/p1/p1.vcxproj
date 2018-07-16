@@ -131,6 +131,7 @@
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\System\BaseSystem.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\System\DrawModelSystem.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\GameWorld.cpp" />
+    <ClCompile Include="..\..\p1\p1\RetroLike\Input\InputManager.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\ObjectManager.cpp" />
     <ClCompile Include="..\..\p1\p1\RetroLike\RetroGame.cpp" />
     <ClCompile Include="..\..\p1\p1\Scene\TestCase1.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\System\BaseSystem.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\System\DrawModelSystem.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\GameWorld.hpp" />
+    <ClInclude Include="..\..\p1\p1\RetroLike\Input\InputManager.h" />
     <ClInclude Include="..\..\p1\p1\RetroLike\ObjectManager.hpp" />
     <ClInclude Include="..\..\p1\p1\RetroLike\RetroGame.hpp" />
     <ClInclude Include="..\..\p1\p1\Scene\TestCase1.hpp" />

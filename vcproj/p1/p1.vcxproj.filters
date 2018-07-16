@@ -57,6 +57,9 @@
     <ClCompile Include="..\..\p1\p1\RetroLike\Ecs\Component\TransformComponent.cpp">
       <Filter>RetroLike\Ecs\Component</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\p1\p1\RetroLike\Input\InputManager.cpp">
+      <Filter>RetroLike\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\p1\p1\Winform.h" />
@@ -114,6 +117,9 @@
     <ClInclude Include="..\..\p1\p1\RetroLike\Ecs\Component\TransformComponent.hpp">
       <Filter>RetroLike\Ecs\Component</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\p1\p1\RetroLike\Input\InputManager.h">
+      <Filter>RetroLike\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RetroLike">
@@ -151,6 +157,9 @@
     </Filter>
     <Filter Include="common">
       <UniqueIdentifier>{32797829-6b01-4e29-b053-663bc41b8e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RetroLike\Input">
+      <UniqueIdentifier>{b60fb4d3-381b-4555-ad0c-1a12127f7e22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
