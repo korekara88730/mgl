@@ -46,13 +46,15 @@ private:
 private:
 	// triangle
     static const int TRIANGLE_VERTEX_SIZE = 9;  // 3 for each vertex,3 vertex.
-    GLfloat* _triangle_vertex_buffer_data;
+    GLfloat* _triangle_vertex_buffer_data = nullptr;
 
 	// cube
+	static const int CUBE_VERTEX_SIZE = 3 * 36;	//	 3 for each vertex,36 vertex
+	GLfloat*	_cube_vertex_buffer_data = nullptr;
 	
 	// rectangle
 	static const int RECTANGLE_VERTEX_SIZE = 3*6;	// 3 for each vertex,6 vertex
-	GLfloat*	_rect_vertex_buffer_data;
+	GLfloat*	_rect_vertex_buffer_data = nullptr;
 
 
 	// vertice count 

@@ -25,6 +25,20 @@ ModelComponent::~ModelComponent() {
         delete[] _triangle_vertex_buffer_data;
         _triangle_vertex_buffer_data = nullptr;
     }
+	if (_cube_vertex_buffer_data != nullptr) {
+		delete[] _cube_vertex_buffer_data;
+		_cube_vertex_buffer_data = nullptr;
+	}
+	if (_rect_vertex_buffer_data != nullptr) {
+		delete[] _rect_vertex_buffer_data;
+		_rect_vertex_buffer_data = nullptr;
+	}
+	if (_vboVertexPos) {
+		glDeleteBuffers(1, &_vboVertexPos);
+	}
+	if (_vaoHandle) {
+		glDeleteVertexArrays(1, &_vaoHandle);
+	}
 }
 
 void ModelComponent::init(EModelType modelType) {
@@ -79,6 +93,9 @@ void ModelComponent::initVertexDataBaseTriangle() {
 	glGenVertexArrays(1, &_vaoHandle);
 
 	_verticeCnt = 3;
+
+	delete[] _triangle_vertex_buffer_data;
+	_triangle_vertex_buffer_data = nullptr;
 }
 
 void ModelComponent::initVertexDataCube() {
@@ -131,6 +148,9 @@ void ModelComponent::initVertexDataRectangle() {
 	glGenVertexArrays(1, &_vaoHandle);
 
 	_verticeCnt = 6;
+
+	delete[] _rect_vertex_buffer_data;
+	_rect_vertex_buffer_data = nullptr;
 }
 
 void ModelComponent::update(float deltaTime) {

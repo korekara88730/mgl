@@ -14,8 +14,7 @@ ObjectManager::ObjectManager() {
 }
 
 ObjectManager::~ObjectManager() {
-    
-    
+	cleanAll();
 }
 
 ObjectManager* ObjectManager::getInstance() {
@@ -48,7 +47,6 @@ void ObjectManager::removeObject(unsigned int id) {
 void ObjectManager::cleanAll() {
     for(auto iter = _objects.begin();iter != _objects.end();++iter){
         delete (*iter);
-        _objects.erase(iter);
     }
     _objects.clear();
 }
