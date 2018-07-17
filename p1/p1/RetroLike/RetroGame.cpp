@@ -8,7 +8,9 @@
 
 #include "RetroGame.hpp"
 #include "Ecs/Component/ModelComponent.hpp"
+#include "Ecs/Component/DrawableComponent.hpp"
 #include "ObjectManager.hpp"
+
 
 RetroGame::RetroGame() {
     
@@ -54,6 +56,13 @@ void RetroGame::startGame() {
 		modelComp->init(ModelComponent::EModelType::MT_Rectangle);
 		auto transComp = obj2->getComponent<TransformComponent>();
 		transComp->setPos(0, 0, 2);
+	}
+
+	{
+		auto model = DrawableManager::getInstance()->getModel(DrawableType::DT_Cube);
+		auto obj3 = ObjectManager::getInstance()->createObject();
+		auto drawableComp = obj3->addComponent<DrawableComponent>();
+		drawableComp->init(model);
 	}
 	
 

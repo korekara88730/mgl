@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "common/Shader.hpp"
+#include "RetroLike/Drawable/Drawable.hpp"
 
 Winform::Winform()
 :_viewportW(0)
@@ -97,6 +98,8 @@ void Winform::mainLoop()
 void Winform::prepareContent() {
 	// shader
 	p1sh::ShaderManager::getInstance()->initAllShaders();
+	// models
+	DrawableManager::getInstance()->initAllResource();
 	// game
     _pGame = new RetroGame();
     _pGame->init();

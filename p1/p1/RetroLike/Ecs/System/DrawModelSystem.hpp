@@ -13,6 +13,7 @@
 #include "BaseSystem.hpp"
 #include "../Component/TransformComponent.hpp"
 #include "../Component/ModelComponent.hpp"
+#include "../Component/DrawableComponent.hpp"
 
 class DrawModelSystem : public BaseSystem {
     
@@ -25,7 +26,8 @@ public:
     virtual void draw() override;
 
 private:
-	void doDraw(TransformComponent* transComp,ModelComponent* modelComp);
+	void doDraw(TransformComponent* transComp, ModelComponent* modelComp);
+	void doDraw(TransformComponent* transComp, DrawableComponent* drawableComp);
     
 };
 
