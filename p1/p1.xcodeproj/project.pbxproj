@@ -9,8 +9,18 @@
 /* Begin PBXBuildFile section */
 		0F6232DF20F9DBD000E96761 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F6232DD20F9DBD000E96761 /* TransformComponent.cpp */; };
 		0F6232E320F9DC7800E96761 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F6232E220F9DC6100E96761 /* InputManager.cpp */; };
-		0F84180A20E729570045B876 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84180820E729570045B876 /* Cube.cpp */; };
-		0F84180D20E729840045B876 /* Drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84180B20E729840045B876 /* Drawable.cpp */; };
+		0F826F852127D65A00D9989F /* Drawable.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F802127D5F800D9989F /* Drawable.hpp */; };
+		0F826F862127D66300D9989F /* Drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F7D2127D5F800D9989F /* Drawable.cpp */; };
+		0F826F872127D67E00D9989F /* Cube.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F7B2127D5F800D9989F /* Cube.hpp */; };
+		0F826F882127D67E00D9989F /* CustomModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F7C2127D5F800D9989F /* CustomModel.cpp */; };
+		0F826F892127D67E00D9989F /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F7E2127D5F800D9989F /* Triangle.cpp */; };
+		0F826F8A2127D67E00D9989F /* CustomModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F7F2127D5F800D9989F /* CustomModel.h */; };
+		0F826F8B2127D67E00D9989F /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F812127D5F800D9989F /* Rectangle.cpp */; };
+		0F826F8C2127D67E00D9989F /* Triangle.h in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F822127D5F800D9989F /* Triangle.h */; };
+		0F826F8D2127D67E00D9989F /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F832127D5F800D9989F /* Cube.cpp */; };
+		0F826F8E2127D67E00D9989F /* Rectangle.h in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F842127D5F800D9989F /* Rectangle.h */; };
+		0F826F912127D6C800D9989F /* DrawableComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F8F2127D6C800D9989F /* DrawableComponent.cpp */; };
+		0F826F922127D6DF00D9989F /* DrawableComponent.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F826F902127D6C800D9989F /* DrawableComponent.hpp */; };
 		0F84181520E734FA0045B876 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84181320E734FA0045B876 /* Camera.cpp */; };
 		0F84181820E76B240045B876 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84181620E76B240045B876 /* ObjectManager.cpp */; };
 		0F84181B20E76B440045B876 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F84181920E76B440045B876 /* GameObject.cpp */; };
@@ -54,10 +64,18 @@
 		0F6232DE20F9DBD000E96761 /* TransformComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransformComponent.hpp; sourceTree = "<group>"; };
 		0F6232E120F9DC6100E96761 /* InputManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
 		0F6232E220F9DC6100E96761 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
-		0F84180820E729570045B876 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Cube.cpp; path = p1/RetroLike/Cube.cpp; sourceTree = SOURCE_ROOT; };
-		0F84180920E729570045B876 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Cube.hpp; path = p1/RetroLike/Cube.hpp; sourceTree = SOURCE_ROOT; };
-		0F84180B20E729840045B876 /* Drawable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Drawable.cpp; path = p1/RetroLike/Drawable.cpp; sourceTree = SOURCE_ROOT; };
-		0F84180C20E729840045B876 /* Drawable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Drawable.hpp; path = p1/RetroLike/Drawable.hpp; sourceTree = SOURCE_ROOT; };
+		0F826F7B2127D5F800D9989F /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cube.hpp; sourceTree = "<group>"; };
+		0F826F7C2127D5F800D9989F /* CustomModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomModel.cpp; sourceTree = "<group>"; };
+		0F826F7D2127D5F800D9989F /* Drawable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Drawable.cpp; sourceTree = "<group>"; };
+		0F826F7E2127D5F800D9989F /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		0F826F7F2127D5F800D9989F /* CustomModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomModel.h; sourceTree = "<group>"; };
+		0F826F802127D5F800D9989F /* Drawable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Drawable.hpp; sourceTree = "<group>"; };
+		0F826F812127D5F800D9989F /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
+		0F826F822127D5F800D9989F /* Triangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
+		0F826F832127D5F800D9989F /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
+		0F826F842127D5F800D9989F /* Rectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
+		0F826F8F2127D6C800D9989F /* DrawableComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawableComponent.cpp; sourceTree = "<group>"; };
+		0F826F902127D6C800D9989F /* DrawableComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawableComponent.hpp; sourceTree = "<group>"; };
 		0F84181320E734FA0045B876 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		0F84181420E734FA0045B876 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 		0F84181620E76B240045B876 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
@@ -131,16 +149,22 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		0F84180720E729340045B876 /* Draw */ = {
+		0F826F7A2127D5F800D9989F /* Drawable */ = {
 			isa = PBXGroup;
 			children = (
-				0F84180820E729570045B876 /* Cube.cpp */,
-				0F84180920E729570045B876 /* Cube.hpp */,
-				0F84180B20E729840045B876 /* Drawable.cpp */,
-				0F84180C20E729840045B876 /* Drawable.hpp */,
+				0F826F7B2127D5F800D9989F /* Cube.hpp */,
+				0F826F7C2127D5F800D9989F /* CustomModel.cpp */,
+				0F826F7D2127D5F800D9989F /* Drawable.cpp */,
+				0F826F7E2127D5F800D9989F /* Triangle.cpp */,
+				0F826F7F2127D5F800D9989F /* CustomModel.h */,
+				0F826F802127D5F800D9989F /* Drawable.hpp */,
+				0F826F812127D5F800D9989F /* Rectangle.cpp */,
+				0F826F822127D5F800D9989F /* Triangle.h */,
+				0F826F832127D5F800D9989F /* Cube.cpp */,
+				0F826F842127D5F800D9989F /* Rectangle.h */,
 			);
-			path = Draw;
-			sourceTree = SOURCE_ROOT;
+			path = Drawable;
+			sourceTree = "<group>";
 		};
 		0F84180E20E72C0D0045B876 /* Ecs */ = {
 			isa = PBXGroup;
@@ -164,6 +188,8 @@
 		0F84181020E72C0D0045B876 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				0F826F8F2127D6C800D9989F /* DrawableComponent.cpp */,
+				0F826F902127D6C800D9989F /* DrawableComponent.hpp */,
 				0F84181C20E76B760045B876 /* ModelComponent.cpp */,
 				0F84181D20E76B760045B876 /* ModelComponent.hpp */,
 				0F84181F20E76B870045B876 /* BaseComponent.cpp */,
@@ -206,10 +232,10 @@
 		0FC5764A20E72005008BB65C /* RetroLike */ = {
 			isa = PBXGroup;
 			children = (
+				0F826F7A2127D5F800D9989F /* Drawable */,
 				0F6232E020F9DC6100E96761 /* Input */,
 				0F84181220E734E80045B876 /* Camera */,
 				0F84180E20E72C0D0045B876 /* Ecs */,
-				0F84180720E729340045B876 /* Draw */,
 				0FC5765020E7215C008BB65C /* World */,
 				0FC5764B20E7205B008BB65C /* RetroGame.cpp */,
 				0FC5764C20E7205B008BB65C /* RetroGame.hpp */,
@@ -394,6 +420,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F826F922127D6DF00D9989F /* DrawableComponent.hpp in Sources */,
+				0F826F872127D67E00D9989F /* Cube.hpp in Sources */,
+				0F826F882127D67E00D9989F /* CustomModel.cpp in Sources */,
+				0F826F892127D67E00D9989F /* Triangle.cpp in Sources */,
+				0F826F912127D6C800D9989F /* DrawableComponent.cpp in Sources */,
+				0F826F8A2127D67E00D9989F /* CustomModel.h in Sources */,
+				0F826F8B2127D67E00D9989F /* Rectangle.cpp in Sources */,
+				0F826F8C2127D67E00D9989F /* Triangle.h in Sources */,
+				0F826F8D2127D67E00D9989F /* Cube.cpp in Sources */,
+				0F826F8E2127D67E00D9989F /* Rectangle.h in Sources */,
+				0F826F862127D66300D9989F /* Drawable.cpp in Sources */,
+				0F826F852127D65A00D9989F /* Drawable.hpp in Sources */,
 				0F6232E320F9DC7800E96761 /* InputManager.cpp in Sources */,
 				0FC5764D20E7205B008BB65C /* RetroGame.cpp in Sources */,
 				0FCC7473203F0629004F8870 /* cJSON.c in Sources */,
@@ -408,7 +446,6 @@
 				0FCC7465203D101F004F8870 /* ObjLoader.cpp in Sources */,
 				0FF10F732035491E00E07F71 /* Shader.hpp in Sources */,
 				0F84181E20E76B760045B876 /* ModelComponent.cpp in Sources */,
-				0F84180A20E729570045B876 /* Cube.cpp in Sources */,
 				0F84182120E76B870045B876 /* BaseComponent.cpp in Sources */,
 				0FC48937203514BA0086CFCD /* TestCase1.cpp in Sources */,
 				0FC4892C203429360086CFCD /* Winform.cpp in Sources */,
@@ -418,7 +455,6 @@
 				0FCA2B7020E78BFA00E1C904 /* DrawModelSystem.cpp in Sources */,
 				688208C51FF64937001FC4FC /* main.cpp in Sources */,
 				0F6232DF20F9DBD000E96761 /* TransformComponent.cpp in Sources */,
-				0F84180D20E729840045B876 /* Drawable.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

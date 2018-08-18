@@ -57,7 +57,8 @@ void ModelComponent::init(EModelType modelType) {
 		initVertexDataRectangle();
 		break;
 	default:
-		assert(false,"Invalid model type!");
+//        assert(false,"Invalid model type!");
+        assert(false);
 		break;
 	}
 }
